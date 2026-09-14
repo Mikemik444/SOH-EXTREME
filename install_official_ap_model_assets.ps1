@@ -1,6 +1,6 @@
 $ErrorActionPreference = 'Stop'
 
-# SOH-EXTREME 0.7.36
+# SOH-EXTREME 0.7.37
 # The current SOH-EXTREME CMakeLists.txt packs BB\assets\custom (NOT BB\soh\assets\custom).
 # This installer makes the official Archipelago-SoH model self-healing before GenerateSohOtr.
 
@@ -44,7 +44,7 @@ function Test-ApAsset([string]$path) {
     }
 }
 
-Write-Host 'SOH-EXTREME 0.7.36 - installing official Archipelago model'
+Write-Host 'SOH-EXTREME 0.7.37 - installing official Archipelago model'
 Write-Host "Correct packer root: $dest"
 
 foreach ($name in $files) {

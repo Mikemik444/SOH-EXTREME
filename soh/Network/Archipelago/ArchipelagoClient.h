@@ -39,6 +39,7 @@ class ArchipelagoClient {
     std::string GetRemoteItemDescription(int32_t randomizerCheck);
     bool IsReadyForFileSelect() const;
     void ApplySlotSettings();
+    void EnforceSlotSettings();
     void ApplyPostInitSlotState();
     void PrepareNewSaveItemReplay();
     void BeginFileSelectActivation();

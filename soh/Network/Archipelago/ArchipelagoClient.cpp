@@ -35,6 +35,33 @@ extern PlayState* gPlayState;
 
 extern "C" u16 Randomizer_Item_Give(PlayState* play, GetItemEntry giEntry);
 
+// These randomizer modules register/unregister their GameInteractor hooks based on
+// the current RSK_* values. ShipInit normally refreshes them when entering a local
+// randomizer save, but AP slot settings arrive after that transition. Re-running
+// the registrations after applying the server snapshot makes the AP slot, rather
+// than the user's local randomizer menu, authoritative.
+void RegisterVBOverrides();
+void RegisterLockOverworldDoors();
+void RegisterMedallionLockedTrials();
+void RegisterShuffleBeehives();
+void RegisterShuffleBeggar();
+void RegisterShuffleCows();
+void RegisterShuffleCrates();
+void RegisterShuffleFairies();
+void RegisterShuffleFish();
+void RegisterShuffleFreestanding();
+void RegisterShuffleGrass();
+void RegisterShuffleIcicles();
+void RegisterShufflePots();
+void RegisterShuffleRedIce();
+void RegisterShuffleRock();
+void RegisterShuffleSigns();
+void RegisterShuffleSilver();
+void RegisterShuffleSpeak();
+void RegisterShuffleTreasureChestGame();
+void RegisterShuffleTrees();
+void RegisterShuffleWonderItems();
+
 namespace {
 constexpr int64_t AP_EXTREME_ITEM_BASE = 9500000;
 constexpr int64_t AP_EXTREME_SPEECH_BASE = 9600000;
@@ -688,6 +715,34 @@ static bool ParseFlatStringIntObject(const std::string& raw, std::unordered_map<
     return i == raw.size();
 }
 
+static void RefreshArchipelagoRandomizerHooks() {
+    // Every function below uses the same COND_* registration macros used at Ship
+    // startup. Calling them again is safe: each macro first unregisters its prior
+    // hook, then registers it according to the *current* RSK value.
+    RegisterVBOverrides();
+    RegisterLockOverworldDoors();
+    RegisterMedallionLockedTrials();
+    RegisterShuffleBeehives();
+    RegisterShuffleBeggar();
+    RegisterShuffleCows();
+    RegisterShuffleCrates();
+    RegisterShuffleFairies();
+    RegisterShuffleFish();
+    RegisterShuffleFreestanding();
+    RegisterShuffleGrass();
+    RegisterShuffleIcicles();
+    RegisterShufflePots();
+    RegisterShuffleRedIce();
+    RegisterShuffleRock();
+    RegisterShuffleSigns();
+    RegisterShuffleSilver();
+    RegisterShuffleSpeak();
+    RegisterShuffleTreasureChestGame();
+    RegisterShuffleTrees();
+    RegisterShuffleWonderItems();
+    SPDLOG_INFO("[Archipelago] Refreshed randomizer hooks from authoritative AP settings");
+}
+
 void ArchipelagoClient::SetSlotSettingsFromJson(const std::string& raw) {
     std::unordered_map<std::string, int64_t> parsed;
     if (!ParseFlatStringIntObject(raw, parsed)) {
@@ -739,6 +794,14 @@ void ArchipelagoClient::ApplySlotSettings() {
         settings->SetAllToContext();
     }
 
+    // ShipInit only watches the IS_RANDO transition for most shuffle modules. If a
+    // local setting (for example ShufflePots) was Off when the randomizer hooks were
+    // first registered, changing the CVar from AP later did not create the missing
+    // hooks. Refresh them now, after both CVars and the live Context match the slot.
+    if (IS_RANDO) {
+        RefreshArchipelagoRandomizerHooks();
+    }
+
     // Wire SOH-EXTREME's trap settings into the engine that actually consumes
     // pendingIceTrapCount. Previously these options were only stored as randomizer
     // settings, so every AP trap either did nothing or behaved like stock ice.
@@ -765,6 +828,27 @@ void ArchipelagoClient::ApplySlotSettings() {
     CVarSetInteger("gEnhancements.ExtraTraps.Teleport", 0);
 
     SPDLOG_INFO("[Archipelago] Applied {} AP settings to gRando.Settings and live Context", slotSettings.size());
+}
+
+void ArchipelagoClient::EnforceSlotSettings() {
+    if (!slotSettingsLoaded || !currentSaveIsArchipelago || gSaveContext.ship.quest.id != QUEST_RANDOMIZER) {
+        return;
+    }
+
+    // AP owns randomizer settings for an AP save. The local randomizer menu is not
+    // allowed to silently change physical checks/logic after connection. If a user
+    // changes one of those CVars locally, restore the server value and refresh the
+    // affected hooks before the next gameplay update.
+    for (const auto& [key, expected] : slotSettings) {
+        const std::string cvar = std::string("gRando.Settings.") + key;
+        const int actual = CVarGetInteger(cvar.c_str(), expected);
+        if (actual != expected) {
+            SPDLOG_WARN("[Archipelago] Local randomizer setting {}={} disagrees with AP {}; restoring server snapshot",
+                        key, actual, expected);
+            ApplySlotSettings();
+            return;
+        }
+    }
 }
 
 bool ArchipelagoClient::IsReadyForFileSelect() const {
@@ -1464,6 +1548,13 @@ void ArchipelagoClient::Update() {
     }
 
     fileSelectActivationRequested = false;
+
+    // Keep AP randomizer settings authoritative for the lifetime of this AP save.
+    // This also repairs a local menu edit immediately instead of letting actors use
+    // a local setting that disagrees with the generated multiworld.
+    if (IsAuthenticated() && slotSettingsLoaded) {
+        EnforceSlotSettings();
+    }
 
     // Existing-save reconciliation happens exactly once after gameplay really exists.
     if (!saveRuntimeSynchronized && IsAuthenticated() && slotSettingsLoaded) {
@@ -2181,8 +2272,10 @@ extern "C" void Archipelago_InitSaveFile(void) {
     // and the live Rando Context BEFORE the normal randomizer save initializer reads
     // any setting. This is what makes hidden/freestanding rupees, pots, shops, keys,
     // starting inventory, bridge rules, souls, etc. match the generated AP slot.
-    client.ApplySlotSettings();
+    // Set the quest type first. Most shuffle registration functions gate on IS_RANDO;
+    // they must see an active randomizer quest when ApplySlotSettings refreshes hooks.
     gSaveContext.ship.quest.id = QUEST_RANDOMIZER;
+    client.ApplySlotSettings();
     Randomizer_InitSaveFile();
 
     // The file-select readiness barrier guarantees scouts are already here, so replace

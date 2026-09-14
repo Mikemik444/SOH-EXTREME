@@ -427,43 +427,37 @@ extern "C" void Randomizer_DrawMysteryItem(PlayState* play, GetItemEntry* getIte
 // instead, which uses the same stable primitive-color path as other SoH effects.
 // The 2D CustomIcon() textures are still retained for message/UI use.
 extern "C" void Randomizer_DrawArchipelagoItem(PlayState* play, GetItemEntry* getItemEntry) {
-    // Use the exact 3D model path from the original Archipelago-SoH client instead
-    // of a hand-authored textured billboard.  This is renderer-native SoH geometry,
-    // so DirectX/OpenGL/Vulkan all see the same display list and vertex resources.
+    // SOH-EXTREME 0.7.37: match the working Archipelago-SoH renderer exactly.
+    // IMPORTANT: custom O2R display-list symbols are resource-name tokens, not raw
+    // display-list pointers that should be pre-resolved with ResourceMgr_LoadGfxByName.
+    // The Fast3D/resource bridge resolves the token when gSPDisplayList is executed,
+    // including all nested CallDisplayList resources inside gArchipelagoItemDL.
     OPEN_DISPS(play->state.gfxCtx);
-    Gfx_SetupDL_25Opa(play->state.gfxCtx);
 
+    Gfx_SetupDL_25Opa(play->state.gfxCtx);
     Matrix_Scale(0.035f, 0.035f, 0.035f, MTXMODE_APPLY);
+
     gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(play->state.gfxCtx, (char*)__FILE__, __LINE__),
               G_MTX_MODELVIEW | G_MTX_LOAD);
 
     const bool important = getItemEntry->drawItemId == RG_AP_REMOTE_IMPORTANT;
     if (!important) {
-        // Filler/junk remote items use the exact same official AP model, but in
-        // grayscale as requested.  Progression/useful items remain full color.
+        // Keep the official multicolor AP model, but render filler/non-important
+        // remote items through SoH's renderer-native grayscale mode.
         gDPSetGrayscaleColor(POLY_OPA_DISP++, 150, 150, 150, 255);
         gSPGrayscale(POLY_OPA_DISP++, true);
     }
 
-    // Resolve the O2R resource explicitly.  Older SOH-EXTREME attempts cast the
-    // resource-name token directly; when the custom object was absent from soh.o2r
-    // that failed silently and left an empty shelf.  Explicit loading lets us detect
-    // the bad install and avoids feeding an unresolved resource token to the backend.
-    Gfx* archipelagoItemDL = ResourceMgr_LoadGfxByName((const char*)gArchipelagoOfficialItemDL);
-    if (archipelagoItemDL != nullptr) {
-        gSPDisplayList(POLY_OPA_DISP++, archipelagoItemDL);
-    } else {
-        static bool missingModelLogged = false;
-        if (!missingModelLogged) {
-            SPDLOG_ERROR("[Archipelago] Missing O2R resource: {}. Re-run BUILD_0.7.36.cmd so the official AP model is packed.",
-                         (const char*)gArchipelagoOfficialItemDL);
-            missingModelLogged = true;
-        }
-    }
+    // This is intentionally the same resource-token pattern used by the working
+    // aMannus/Shipwright Archipelago branch: gSPDisplayList(..., (Gfx*)gArchipelagoItemDL).
+    // Do NOT call ResourceMgr_LoadGfxByName here; doing so strips the resource-token
+    // semantics needed by nested custom display lists and produced an invisible model.
+    gSPDisplayList(POLY_OPA_DISP++, (Gfx*)gArchipelagoOfficialItemDL);
 
     if (!important) {
         gSPGrayscale(POLY_OPA_DISP++, false);
     }
+
     CLOSE_DISPS(play->state.gfxCtx);
 }
 
