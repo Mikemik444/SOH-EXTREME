@@ -674,7 +674,7 @@ void ArchipelagoClient::SetShopPricesFromJson(const std::string& raw) {
 void ArchipelagoClient::ApplySlotSettings() {
     if (!slotSettingsLoaded) return;
     for (const auto& [key, value] : slotSettings) {
-        const std::string cvar = std::string("gRando.Settings.") + key;
+        const std::string cvar = std::string("gRandoSettings.") + key;
         CVarSetInteger(cvar.c_str(), value);
     }
 

@@ -1,5 +1,7 @@
 #include "ArchipelagoClient.h"
 
+static bool ParseFlatStringIntObject(const std::string& raw, std::unordered_map<std::string, int64_t>& out);
+
 #include <Archipelago.h>
 #include <spdlog/spdlog.h>
 #include <algorithm>
@@ -506,13 +508,35 @@ std::string ArchipelagoClient::GetReceivedCountCVar() const {
 }
 
 void ArchipelagoClient::LoadSaveMetadata(bool isArchipelagoSave, uint64_t receivedItemCount,
-                                               const std::string& server, const std::string& slot) {
+                                               const std::string& server, const std::string& slot,
+                                               const std::string& cachedSettingsJson) {
     std::scoped_lock lock(queueMutex);
 
     currentSaveIsArchipelago = isArchipelagoSave;
     saveMetadataLoaded = true;
     saveServer = server;
     saveSlot = slot;
+    cachedSlotSettingsJson = cachedSettingsJson;
+
+    // 0.7.39: Restore the last server-authoritative settings snapshot from THIS save
+    // before the first gameplay scene creates its actors.  Reconnecting to AP happens
+    // asynchronously, which is too late for ShouldActorInit-based systems such as Pot
+    // Soul, Grass/Bush Soul, Enemy Soul, etc.  The live server snapshot will replace
+    // this cache as soon as Connected slot_data arrives.
+    if (isArchipelagoSave && !cachedSettingsJson.empty()) {
+        std::unordered_map<std::string, int64_t> parsed;
+        if (ParseFlatStringIntObject(cachedSettingsJson, parsed)) {
+            slotSettings.clear();
+            for (const auto& [key, value] : parsed) {
+                slotSettings[key] = static_cast<int>(value);
+            }
+            slotSettingsLoaded = true;
+            ApplySlotSettings();
+            SPDLOG_INFO("[Archipelago] Restored {} cached AP settings from save before scene init", slotSettings.size());
+        } else {
+            SPDLOG_WARN("[Archipelago] Ignoring invalid cached AP settings stored in save");
+        }
+    }
     saveIdentityMismatch = false;
 
     if (!isArchipelagoSave) {
@@ -753,6 +777,7 @@ void ArchipelagoClient::SetSlotSettingsFromJson(const std::string& raw) {
     for (const auto& [key, value] : parsed) {
         slotSettings[key] = static_cast<int>(value);
     }
+    cachedSlotSettingsJson = raw;
     slotSettingsLoaded = true;
     // Keep the randomizer menu/display synchronized immediately after connection too.
     // File creation calls ApplySlotSettings again immediately before init as a hard barrier.
@@ -781,9 +806,21 @@ void ArchipelagoClient::SetShopPricesFromJson(const std::string& raw) {
 
 void ArchipelagoClient::ApplySlotSettings() {
     if (!slotSettingsLoaded) return;
+
+    // Archipelago owns the complete randomizer settings snapshot for AP saves.
+    // IMPORTANT: this fork's real randomizer CVar prefix is gRandoSettings.*, not
+    // gRando.Settings.*. Write and immediately read every value back so a future
+    // prefix/key regression is visible in the log instead of silently falling back
+    // to the local Randomizer menu.
+    size_t cvarMismatchCount = 0;
     for (const auto& [key, value] : slotSettings) {
-        const std::string cvar = std::string("gRando.Settings.") + key;
+        const std::string cvar = std::string("gRandoSettings.") + key;
         CVarSetInteger(cvar.c_str(), value);
+        const int readBack = CVarGetInteger(cvar.c_str(), value - 1);
+        if (readBack != value) {
+            ++cvarMismatchCount;
+            SPDLOG_ERROR("[Archipelago] Failed to apply AP setting {}={} (read back {})", key, value, readBack);
+        }
     }
 
     // Option::GetOptionIndex reads from the CVars above. Copy those values into the
@@ -827,7 +864,24 @@ void ArchipelagoClient::ApplySlotSettings() {
     CVarSetInteger("gEnhancements.ExtraTraps.Kill", 0);
     CVarSetInteger("gEnhancements.ExtraTraps.Teleport", 0);
 
-    SPDLOG_INFO("[Archipelago] Applied {} AP settings to gRando.Settings and live Context", slotSettings.size());
+    // Log the settings that most visibly prove whether AP is authoritative. This is
+    // intentionally after UpdateAllOptions()/SetAllToContext(), so these are the same
+    // RSK values actors and gameplay hooks consume.
+    SPDLOG_INFO(
+        "[Archipelago] AP settings active: Pots={} PotSoul={} Grass={} GrassSoul={} Rocks={} RockSoul={} "
+        "Crates={} CrateSoul={} Speak={} NPCSpeech={} FlowOfTime={} ({} total, {} CVar mismatches)",
+        Randomizer_GetSettingValue(RSK_SHUFFLE_POTS),
+        Randomizer_GetSettingValue(RSK_SHUFFLE_POT_SOUL),
+        Randomizer_GetSettingValue(RSK_SHUFFLE_GRASS),
+        Randomizer_GetSettingValue(RSK_SHUFFLE_GRASS_SOUL),
+        Randomizer_GetSettingValue(RSK_SHUFFLE_ROCKS),
+        Randomizer_GetSettingValue(RSK_SHUFFLE_ROCK_SOUL),
+        Randomizer_GetSettingValue(RSK_SHUFFLE_CRATES),
+        Randomizer_GetSettingValue(RSK_SHUFFLE_CRATE_SOUL),
+        Randomizer_GetSettingValue(RSK_SHUFFLE_SPEAK),
+        Randomizer_GetSettingValue(RSK_NPC_SPEECH_SANITY),
+        Randomizer_GetSettingValue(RSK_SHUFFLE_FLOW_OF_TIME),
+        slotSettings.size(), cvarMismatchCount);
 }
 
 void ArchipelagoClient::EnforceSlotSettings() {
@@ -840,7 +894,7 @@ void ArchipelagoClient::EnforceSlotSettings() {
     // changes one of those CVars locally, restore the server value and refresh the
     // affected hooks before the next gameplay update.
     for (const auto& [key, expected] : slotSettings) {
-        const std::string cvar = std::string("gRando.Settings.") + key;
+        const std::string cvar = std::string("gRandoSettings.") + key;
         const int actual = CVarGetInteger(cvar.c_str(), expected);
         if (actual != expected) {
             SPDLOG_WARN("[Archipelago] Local randomizer setting {}={} disagrees with AP {}; restoring server snapshot",
@@ -2277,6 +2331,10 @@ extern "C" void Archipelago_InitSaveFile(void) {
     gSaveContext.ship.quest.id = QUEST_RANDOMIZER;
     client.ApplySlotSettings();
     Randomizer_InitSaveFile();
+    // Some native save initialization paths normalize options/derived CVars. Re-apply
+    // the exact AP snapshot after starting inventory/event initialization as a final
+    // authority barrier before the first room can spawn actors.
+    client.ApplySlotSettings();
 
     // The file-select readiness barrier guarantees scouts are already here, so replace
     // native placements/prices before the first scene actors cache their models.

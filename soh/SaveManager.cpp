@@ -277,12 +277,14 @@ void SaveManager::LoadRandomizer() {
     uint64_t archipelagoReceivedItemCount = 0;
     std::string archipelagoServer;
     std::string archipelagoSlot;
+    std::string archipelagoSettingsJson;
     int archipelagoMetadataVersion = 0;
     SaveManager::Instance->LoadData("archipelagoMetadataVersion", archipelagoMetadataVersion, 0);
     SaveManager::Instance->LoadData("archipelagoSave", archipelagoSave, false);
     SaveManager::Instance->LoadData("archipelagoReceivedItemCount", archipelagoReceivedItemCount, (uint64_t)0);
     SaveManager::Instance->LoadData("archipelagoServer", archipelagoServer, std::string{});
     SaveManager::Instance->LoadData("archipelagoSlot", archipelagoSlot, std::string{});
+    SaveManager::Instance->LoadData("archipelagoSettingsJson", archipelagoSettingsJson, std::string{});
 
     size_t archipelagoFallbackNpcSpeechCount = 0;
     std::vector<uint64_t> archipelagoFallbackNpcSpeechHashes;
@@ -295,7 +297,7 @@ void SaveManager::LoadRandomizer() {
                                      });
 
     ArchipelagoClient::GetInstance().LoadSaveMetadata(archipelagoSave, archipelagoReceivedItemCount,
-                                                       archipelagoServer, archipelagoSlot);
+                                                       archipelagoServer, archipelagoSlot, archipelagoSettingsJson);
     ArchipelagoClient::GetInstance().LoadFallbackNpcSpeechHashes(archipelagoFallbackNpcSpeechHashes);
 
     std::shared_ptr<Randomizer> randomizer = OTRGlobals::Instance->gRandomizer;
@@ -489,12 +491,16 @@ void SaveManager::SaveRandomizer(SaveContext* saveContext, int sectionID, bool f
     SaveManager::Instance->SaveData("pendingIceTrapCount", saveContext->ship.pendingIceTrapCount);
 
     auto& archipelago = ArchipelagoClient::GetInstance();
-    SaveManager::Instance->SaveData("archipelagoMetadataVersion", 1);
+    SaveManager::Instance->SaveData("archipelagoMetadataVersion", 2);
     SaveManager::Instance->SaveData("archipelagoSave", archipelago.IsCurrentSaveArchipelago());
     if (archipelago.IsCurrentSaveArchipelago()) {
         SaveManager::Instance->SaveData("archipelagoReceivedItemCount", archipelago.GetAppliedItemCount());
         SaveManager::Instance->SaveData("archipelagoServer", archipelago.GetSaveServer());
         SaveManager::Instance->SaveData("archipelagoSlot", archipelago.GetSaveSlot());
+        // Persist the exact flat gRando.Settings snapshot delivered by this AP slot.
+        // It is restored before scene actor initialization on the next load, eliminating
+        // the race where local menu values were visible until networking finished.
+        SaveManager::Instance->SaveData("archipelagoSettingsJson", archipelago.GetCachedSlotSettingsJson());
 
         const auto fallbackNpcSpeechHashes = archipelago.GetFallbackNpcSpeechHashes();
         SaveManager::Instance->SaveData("archipelagoFallbackNpcSpeechCount", fallbackNpcSpeechHashes.size());

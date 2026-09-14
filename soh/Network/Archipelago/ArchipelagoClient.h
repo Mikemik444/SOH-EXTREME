@@ -52,11 +52,12 @@ class ArchipelagoClient {
     // each save resumes the server ReceivedItems stream at exactly the point
     // represented by that save's inventory.
     void LoadSaveMetadata(bool isArchipelagoSave, uint64_t receivedItemCount, const std::string& server,
-                          const std::string& slot);
+                          const std::string& slot, const std::string& cachedSettingsJson);
     bool IsCurrentSaveArchipelago() const { return currentSaveIsArchipelago; }
     uint64_t GetAppliedItemCount() const { return appliedItemCount; }
     std::string GetSaveServer() const { return saveServer; }
     std::string GetSaveSlot() const { return saveSlot; }
+    std::string GetCachedSlotSettingsJson() const { return cachedSlotSettingsJson; }
 
   private:
     ArchipelagoClient() = default;
@@ -155,4 +156,5 @@ class ArchipelagoClient {
     std::vector<uint64_t> fallbackNpcSpeechHashes;
     std::unordered_set<uint64_t> fallbackNpcSpeechSeen;
     std::string saveSlot;
+    std::string cachedSlotSettingsJson;
 };
