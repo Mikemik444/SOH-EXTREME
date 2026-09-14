@@ -445,7 +445,21 @@ extern "C" void Randomizer_DrawArchipelagoItem(PlayState* play, GetItemEntry* ge
         gSPGrayscale(POLY_OPA_DISP++, true);
     }
 
-    gSPDisplayList(POLY_OPA_DISP++, (Gfx*)gArchipelagoOfficialItemDL);
+    // Resolve the O2R resource explicitly.  Older SOH-EXTREME attempts cast the
+    // resource-name token directly; when the custom object was absent from soh.o2r
+    // that failed silently and left an empty shelf.  Explicit loading lets us detect
+    // the bad install and avoids feeding an unresolved resource token to the backend.
+    Gfx* archipelagoItemDL = ResourceMgr_LoadGfxByName((const char*)gArchipelagoOfficialItemDL);
+    if (archipelagoItemDL != nullptr) {
+        gSPDisplayList(POLY_OPA_DISP++, archipelagoItemDL);
+    } else {
+        static bool missingModelLogged = false;
+        if (!missingModelLogged) {
+            SPDLOG_ERROR("[Archipelago] Missing O2R resource: {}. Re-run BUILD_0.7.36.cmd so the official AP model is packed.",
+                         (const char*)gArchipelagoOfficialItemDL);
+            missingModelLogged = true;
+        }
+    }
 
     if (!important) {
         gSPGrayscale(POLY_OPA_DISP++, false);
