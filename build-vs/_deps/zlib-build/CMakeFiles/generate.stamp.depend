@@ -1,0 +1,10 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CheckFunctionExists.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CheckIncludeFileCXX.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CheckTypeSize.cmake
+E:/test/bb/build-vs/CMakeFiles/cmake.verify_globs
+E:/test/bb/build-vs/_deps/zlib-src/CMakeLists.txt
+E:/test/bb/build-vs/_deps/zlib-src/zconf.h.cmakein
+E:/test/bb/build-vs/_deps/zlib-src/zlib.pc.cmakein

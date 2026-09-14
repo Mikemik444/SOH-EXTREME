@@ -1,0 +1,33 @@
+{
+	"InstallScripts" : 
+	[
+		"E:/test/bb/build-vs/cmake_install.cmake",
+		"E:/test/bb/build-vs/libultraship/cmake_install.cmake",
+		"E:/test/bb/build-vs/_deps/prism-build/cmake_install.cmake",
+		"E:/test/bb/build-vs/libultraship/src/cmake_install.cmake",
+		"E:/test/bb/build-vs/libultraship/src/fast/cmake_install.cmake",
+		"E:/test/bb/build-vs/libultraship/src/libultraship/cmake_install.cmake",
+		"E:/test/bb/build-vs/libultraship/src/ship/cmake_install.cmake",
+		"E:/test/bb/build-vs/_deps/apcpp-build/cmake_install.cmake",
+		"E:/test/bb/build-vs/_deps/apcpp-build/mbedtls_bin/cmake_install.cmake",
+		"E:/test/bb/build-vs/_deps/apcpp-build/mbedtls_bin/framework/cmake_install.cmake",
+		"E:/test/bb/build-vs/_deps/apcpp-build/mbedtls_bin/include/cmake_install.cmake",
+		"E:/test/bb/build-vs/_deps/apcpp-build/mbedtls_bin/3rdparty/cmake_install.cmake",
+		"E:/test/bb/build-vs/_deps/apcpp-build/mbedtls_bin/3rdparty/everest/cmake_install.cmake",
+		"E:/test/bb/build-vs/_deps/apcpp-build/mbedtls_bin/3rdparty/p256-m/cmake_install.cmake",
+		"E:/test/bb/build-vs/_deps/apcpp-build/mbedtls_bin/library/cmake_install.cmake",
+		"E:/test/bb/build-vs/_deps/apcpp-build/mbedtls_bin/pkgconfig/cmake_install.cmake",
+		"E:/test/bb/build-vs/_deps/apcpp-build/IXWebSocket/cmake_install.cmake",
+		"E:/test/bb/build-vs/_deps/apcpp-build/jsoncpp/cmake_install.cmake",
+		"E:/test/bb/build-vs/_deps/apcpp-build/jsoncpp/src/cmake_install.cmake",
+		"E:/test/bb/build-vs/_deps/apcpp-build/jsoncpp/src/lib_json/cmake_install.cmake",
+		"E:/test/bb/build-vs/_deps/apcpp-build/jsoncpp/include/cmake_install.cmake",
+		"E:/test/bb/build-vs/Torch/cmake_install.cmake",
+		"E:/test/bb/build-vs/Torch/lib/binarytools/cmake_install.cmake",
+		"E:/test/bb/build-vs/Torch/lib/n64graphics/cmake_install.cmake",
+		"E:/test/bb/build-vs/_deps/yaml-cpp-build/cmake_install.cmake",
+		"E:/test/bb/build-vs/_deps/tinyxml2-build/cmake_install.cmake",
+		"E:/test/bb/build-vs/_deps/zlib-build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -1,0 +1,13 @@
+prefix=C:/Program Files/soh
+exec_prefix=C:/Program Files/soh
+libdir=C:/Program Files/soh/lib
+sharedlibdir=C:/Program Files/soh/lib
+includedir=C:/Program Files/soh/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.3.1
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}

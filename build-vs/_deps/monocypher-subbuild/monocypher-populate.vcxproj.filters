@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\monocypher-subbuild\CMakeFiles\a50f9ab86c7cbf78de7fca48ec4f1661\monocypher-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\monocypher-subbuild\CMakeFiles\a50f9ab86c7cbf78de7fca48ec4f1661\monocypher-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\monocypher-subbuild\CMakeFiles\a50f9ab86c7cbf78de7fca48ec4f1661\monocypher-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\monocypher-subbuild\CMakeFiles\a50f9ab86c7cbf78de7fca48ec4f1661\monocypher-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\monocypher-subbuild\CMakeFiles\a50f9ab86c7cbf78de7fca48ec4f1661\monocypher-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\monocypher-subbuild\CMakeFiles\a50f9ab86c7cbf78de7fca48ec4f1661\monocypher-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\monocypher-subbuild\CMakeFiles\a50f9ab86c7cbf78de7fca48ec4f1661\monocypher-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\monocypher-subbuild\CMakeFiles\a50f9ab86c7cbf78de7fca48ec4f1661\monocypher-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\monocypher-subbuild\CMakeFiles\14fdbac21e9be1f87267bbcd4af5da69\monocypher-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\monocypher-subbuild\CMakeFiles\d502afa1696e2c8030f00dfe1374a955\monocypher-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\monocypher-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="E:\test\bb\build-vs\_deps\monocypher-subbuild\CMakeFiles\monocypher-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{554DA2E9-BC57-342F-A689-5FB8DCD01306}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

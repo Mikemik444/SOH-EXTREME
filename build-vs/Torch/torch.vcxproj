@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2CAFA5A0-BF3F-3052-9914-2977F55BF9FF}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <VcpkgEnabled>false</VcpkgEnabled>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>torch</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="do_not_import_user.props" Condition="exists('do_not_import_user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\test\bb\build-vs\Torch\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">torch.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">torch</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\test\bb\build-vs\Torch\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">torch.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">torch</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\test\bb\Torch;E:\test\bb\Torch\lib;E:\test\bb\Torch\src;E:\test\bb\build-vs\_deps\yaml-cpp-src\include;E:\test\bb\build-vs\_deps\tinyxml2-src;E:\test\bb\build-vs\_deps\zlib-build;E:\test\bb\build-vs\_deps\zlib-src;E:\test\bb\Torch\lib\n64graphics;E:\test\bb\Torch\lib\binarytools;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "E:/test/vcpkg/installed/x64-windows-static/include" /w /bigobj /utf-8</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ConformanceMode>true</ConformanceMode>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <MinimalRebuild></MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);PORT_VERSION_ENDIANNESS;SM64_SUPPORT;SF64_SUPPORT;MK64_SUPPORT;PM64_SUPPORT;FZERO_SUPPORT;BK64_SUPPORT;MARIO_ARTIST_SUPPORT;NAUDIO_SUPPORT;OOT_SUPPORT;NOMINMAX;_USE_MATH_DEFINES;STORMLIB_NO_AUTO_LINK;YAML_CPP_STATIC_DEFINE;SPDLOG_COMPILED_LIB;SPDLOG_FMT_EXTERNAL;TINYXML2_DEBUG;_FILE_OFFSET_BITS=64;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;PORT_VERSION_ENDIANNESS;SM64_SUPPORT;SF64_SUPPORT;MK64_SUPPORT;PM64_SUPPORT;FZERO_SUPPORT;BK64_SUPPORT;MARIO_ARTIST_SUPPORT;NAUDIO_SUPPORT;OOT_SUPPORT;NOMINMAX;_USE_MATH_DEFINES;STORMLIB_NO_AUTO_LINK;YAML_CPP_STATIC_DEFINE;SPDLOG_COMPILED_LIB;SPDLOG_FMT_EXTERNAL;TINYXML2_DEBUG;_FILE_OFFSET_BITS=64;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\test\bb\Torch;E:\test\bb\Torch\lib;E:\test\bb\Torch\src;E:\test\bb\build-vs\_deps\yaml-cpp-src\include;E:\test\bb\build-vs\_deps\tinyxml2-src;E:\test\bb\build-vs\_deps\zlib-build;E:\test\bb\build-vs\_deps\zlib-src;E:\test\bb\Torch\lib\n64graphics;E:\test\bb\Torch\lib\binarytools;E:\test\vcpkg\installed\x64-windows-static\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\test\bb\Torch;E:\test\bb\Torch\lib;E:\test\bb\Torch\src;E:\test\bb\build-vs\_deps\yaml-cpp-src\include;E:\test\bb\build-vs\_deps\tinyxml2-src;E:\test\bb\build-vs\_deps\zlib-build;E:\test\bb\build-vs\_deps\zlib-src;E:\test\bb\Torch\lib\n64graphics;E:\test\bb\Torch\lib\binarytools;E:\test\vcpkg\installed\x64-windows-static\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\test\bb\Torch;E:\test\bb\Torch\lib;E:\test\bb\Torch\src;E:\test\bb\build-vs\_deps\yaml-cpp-src\include;E:\test\bb\build-vs\_deps\tinyxml2-src;E:\test\bb\build-vs\_deps\zlib-build;E:\test\bb\build-vs\_deps\zlib-src;E:\test\bb\Torch\lib\n64graphics;E:\test\bb\Torch\lib\binarytools;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "E:/test/vcpkg/installed/x64-windows-static/include" /O3 /bigobj /utf-8</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ConformanceMode>true</ConformanceMode>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <MinimalRebuild></MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization></Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);PORT_VERSION_ENDIANNESS;SM64_SUPPORT;SF64_SUPPORT;MK64_SUPPORT;PM64_SUPPORT;FZERO_SUPPORT;BK64_SUPPORT;MARIO_ARTIST_SUPPORT;NAUDIO_SUPPORT;OOT_SUPPORT;NOMINMAX;_USE_MATH_DEFINES;STORMLIB_NO_AUTO_LINK;YAML_CPP_STATIC_DEFINE;SPDLOG_COMPILED_LIB;SPDLOG_FMT_EXTERNAL;_FILE_OFFSET_BITS=64;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;PORT_VERSION_ENDIANNESS;SM64_SUPPORT;SF64_SUPPORT;MK64_SUPPORT;PM64_SUPPORT;FZERO_SUPPORT;BK64_SUPPORT;MARIO_ARTIST_SUPPORT;NAUDIO_SUPPORT;OOT_SUPPORT;NOMINMAX;_USE_MATH_DEFINES;STORMLIB_NO_AUTO_LINK;YAML_CPP_STATIC_DEFINE;SPDLOG_COMPILED_LIB;SPDLOG_FMT_EXTERNAL;_FILE_OFFSET_BITS=64;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\test\bb\Torch;E:\test\bb\Torch\lib;E:\test\bb\Torch\src;E:\test\bb\build-vs\_deps\yaml-cpp-src\include;E:\test\bb\build-vs\_deps\tinyxml2-src;E:\test\bb\build-vs\_deps\zlib-build;E:\test\bb\build-vs\_deps\zlib-src;E:\test\bb\Torch\lib\n64graphics;E:\test\bb\Torch\lib\binarytools;E:\test\vcpkg\installed\x64-windows-static\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\test\bb\Torch;E:\test\bb\Torch\lib;E:\test\bb\Torch\src;E:\test\bb\build-vs\_deps\yaml-cpp-src\include;E:\test\bb\build-vs\_deps\tinyxml2-src;E:\test\bb\build-vs\_deps\zlib-build;E:\test\bb\build-vs\_deps\zlib-src;E:\test\bb\Torch\lib\n64graphics;E:\test\bb\Torch\lib\binarytools;E:\test\vcpkg\installed\x64-windows-static\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\test\bb\Torch\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/test/bb/Torch/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/test/bb -BE:/test/bb/build-vs --check-stamp-file E:/test/bb/build-vs/Torch/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeFindDependencyMacro.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-4.1\Modules\FetchContent\package-config-version.cmake.in;C:\Program Files\CMake\share\cmake-4.1\Modules\FetchContent\package-config.cmake.in;C:\Program Files\CMake\share\cmake-4.1\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindThreads.cmake;E:\test\bb\build-vs\CMakeFiles\cmake.verify_globs;E:\test\vcpkg\installed\x64-windows-static\share\fmt\fmt-config-version.cmake;E:\test\vcpkg\installed\x64-windows-static\share\fmt\fmt-config.cmake;E:\test\vcpkg\installed\x64-windows-static\share\fmt\fmt-targets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\fmt\fmt-targets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\fmt\fmt-targets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\spdlog\spdlogConfig.cmake;E:\test\vcpkg\installed\x64-windows-static\share\spdlog\spdlogConfigTargets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\spdlog\spdlogConfigTargets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\spdlog\spdlogConfigTargets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\spdlog\spdlogConfigVersion.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\test\bb\build-vs\Torch\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/test/bb/Torch/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/test/bb -BE:/test/bb/build-vs --check-stamp-file E:/test/bb/build-vs/Torch/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeFindDependencyMacro.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-4.1\Modules\FetchContent\package-config-version.cmake.in;C:\Program Files\CMake\share\cmake-4.1\Modules\FetchContent\package-config.cmake.in;C:\Program Files\CMake\share\cmake-4.1\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindThreads.cmake;E:\test\bb\build-vs\CMakeFiles\cmake.verify_globs;E:\test\vcpkg\installed\x64-windows-static\share\fmt\fmt-config-version.cmake;E:\test\vcpkg\installed\x64-windows-static\share\fmt\fmt-config.cmake;E:\test\vcpkg\installed\x64-windows-static\share\fmt\fmt-targets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\fmt\fmt-targets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\fmt\fmt-targets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\spdlog\spdlogConfig.cmake;E:\test\vcpkg\installed\x64-windows-static\share\spdlog\spdlogConfigTargets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\spdlog\spdlogConfigTargets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\spdlog\spdlogConfigTargets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\spdlog\spdlogConfigVersion.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\test\bb\build-vs\Torch\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="E:\test\bb\Torch\lib\bk_zip\bk_unzip.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\lib\strhash64\StrHash64.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\AliasManager.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\Companion.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\archive\BinaryWrapper.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\archive\SWrapper.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\archive\ZWrapper.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\AssetArrayFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\BaseFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\BlobFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\CompressedTextureFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\DisplayListFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\DisplayListOverrides.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\FloatFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\GenericArrayFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\IncludeFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\LightsFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\MtxFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\TextureFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\Vec3fFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\Vec3sFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\ViewportFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\VtxFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\bk64\AnimFactory.cpp">
+      <ObjectFileName>$(IntDir)/src/factories/bk64/AnimFactory.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="E:\test\bb\Torch\src\factories\bk64\BKAssetFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\bk64\ConfigFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\bk64\DemoInputFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\bk64\DialogFactory.cpp">
+      <ObjectFileName>$(IntDir)/src/factories/bk64/DialogFactory.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="E:\test\bb\Torch\src\factories\bk64\GeoLayoutFactory.cpp">
+      <ObjectFileName>$(IntDir)/src/factories/bk64/GeoLayoutFactory.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="E:\test\bb\Torch\src\factories\bk64\GruntyQuestionFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\bk64\MapFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\bk64\ModelFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\bk64\QuizQuestionFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\bk64\SoundfontTblFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\bk64\SpriteFactory.cpp">
+      <ObjectFileName>$(IntDir)/src/factories/bk64/SpriteFactory.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="E:\test\bb\Torch\src\factories\fzerox\CourseFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\fzerox\EADAnimationFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\fzerox\EADLimbFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\fzerox\GhostRecordFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\fzerox\SequenceFactory.cpp">
+      <ObjectFileName>$(IntDir)/src/factories/fzerox/SequenceFactory.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="E:\test\bb\Torch\src\factories\fzerox\SoundFontFactory.cpp">
+      <ObjectFileName>$(IntDir)/src/factories/fzerox/SoundFontFactory.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="E:\test\bb\Torch\src\factories\mario_artist\MA2D1Factory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\mk64\CourseMetadata.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\mk64\CourseVtx.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\mk64\DrivingBehaviour.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\mk64\ItemCurve.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\mk64\PackedDisplayListFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\mk64\Paths.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\mk64\SpawnData.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\mk64\TrackSections.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\mk64\UnkSpawnData.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\naudio\v0\AIFCDecode.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\naudio\v0\AudioHeaderFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\naudio\v0\AudioManager.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\naudio\v0\BankFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\naudio\v0\SampleFactory.cpp">
+      <ObjectFileName>$(IntDir)/src/factories/naudio/v0/SampleFactory.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="E:\test\bb\Torch\src\factories\naudio\v0\SequenceFactory.cpp">
+      <ObjectFileName>$(IntDir)/src/factories/naudio/v0/SequenceFactory.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="E:\test\bb\Torch\src\factories\naudio\v0\SequencePlayerV0.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\naudio\v1\AudioContext.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\naudio\v1\AudioConverter.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\naudio\v1\AudioTableFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\naudio\v1\BookFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\naudio\v1\DrumFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\naudio\v1\EnvelopeFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\naudio\v1\InstrumentFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\naudio\v1\LoopFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\naudio\v1\SampleFactory.cpp">
+      <ObjectFileName>$(IntDir)/src/factories/naudio/v1/SampleFactory.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="E:\test\bb\Torch\src\factories\naudio\v1\SequenceFactory.cpp">
+      <ObjectFileName>$(IntDir)/src/factories/naudio/v1/SequenceFactory.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="E:\test\bb\Torch\src\factories\naudio\v1\SequencePlayerV1.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\naudio\v1\SoundFontFactory.cpp">
+      <ObjectFileName>$(IntDir)/src/factories/naudio/v1/SoundFontFactory.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="E:\test\bb\Torch\src\factories\oot\DeferredVtx.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\oot\OoTAnimationFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\oot\OoTArrayFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\oot\OoTAudioFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\oot\OoTAudioFontWriter.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\oot\OoTAudioSampleWriter.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\oot\OoTAudioSequenceWriter.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\oot\OoTAudioTypes.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\oot\OoTCollisionFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\oot\OoTCurveAnimationFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\oot\OoTCutsceneFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\oot\OoTDListHelpers.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\oot\OoTLimbFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\oot\OoTMtxFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\oot\OoTPathFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\oot\OoTPlayerAnimationFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\oot\OoTSceneCommandWriter.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\oot\OoTSceneFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\oot\OoTSceneUtils.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\oot\OoTSkeletonFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\oot\OoTSkeletonTypes.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\oot\OoTTextFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\pm64\AudioFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\pm64\AudioPreview.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\pm64\BackgroundFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\pm64\CollisionFactory.cpp">
+      <ObjectFileName>$(IntDir)/src/factories/pm64/CollisionFactory.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="E:\test\bb\Torch\src\factories\pm64\ImagePreview.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\pm64\ImgFXAnimFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\pm64\MapTextureFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\pm64\ShapeFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\pm64\SpriteFactory.cpp">
+      <ObjectFileName>$(IntDir)/src/factories/pm64/SpriteFactory.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="E:\test\bb\Torch\src\factories\pm64\StoryImageFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\pm64\TitleDataFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sf64\AnimFactory.cpp">
+      <ObjectFileName>$(IntDir)/src/factories/sf64/AnimFactory.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sf64\ColPolyFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sf64\EnvironmentFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sf64\HitboxFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sf64\MessageFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sf64\MessageLookupFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sf64\ObjInitFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sf64\SF64Preview.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sf64\ScriptFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sf64\SkeletonFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sf64\TriangleFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sf64\audio\AudioDecompressor.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sm64\AnimationFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sm64\BehaviorScriptFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sm64\CollisionFactory.cpp">
+      <ObjectFileName>$(IntDir)/src/factories/sm64/CollisionFactory.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sm64\DialogFactory.cpp">
+      <ObjectFileName>$(IntDir)/src/factories/sm64/DialogFactory.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sm64\DictionaryFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sm64\GeoLayoutFactory.cpp">
+      <ObjectFileName>$(IntDir)/src/factories/sm64/GeoLayoutFactory.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sm64\LevelScriptFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sm64\MacroFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sm64\MovtexFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sm64\MovtexQuadFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sm64\PaintingFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sm64\PaintingMapFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sm64\TextFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sm64\TextPreview.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sm64\TrajectoryFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sm64\WaterDropletFactory.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\factories\sm64\geo\GeoUtils.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\lib\web.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\main.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\n64\Cartridge.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\preprocess\CompTool.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\types\Vec3D.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\ui\audio\SequenceDriver.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\ui\audio\SequenceSynth.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\ui\backends\LusBackend.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\utils\Decompressor.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\utils\StringHelper.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\utils\TextureUtils.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\src\utils\TorchUtils.cpp" />
+    <ClCompile Include="E:\test\bb\Torch\lib\libmio0\mio0.c" />
+    <ClCompile Include="E:\test\bb\Torch\lib\libmio0\tkmk00.c" />
+    <ClCompile Include="E:\test\bb\Torch\lib\libmio0\utils.c" />
+    <ClCompile Include="E:\test\bb\Torch\lib\libyay0\yay0.c" />
+    <ClCompile Include="E:\test\bb\Torch\lib\libyay0\yay1.c" />
+    <ClCompile Include="E:\test\bb\Torch\lib\libyaz0\yaz0.c" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="E:\test\bb\build-vs\ZERO_CHECK.vcxproj">
+      <Project>{091C2101-EF04-378F-B8B7-86E68238450C}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\Torch\lib\binarytools\BinaryTools.vcxproj">
+      <Project>{2D82B815-980A-3FBC-AB62-99A12D8734BB}</Project>
+      <Name>BinaryTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\Torch\lib\n64graphics\N64Graphics.vcxproj">
+      <Project>{019E08E6-D7DA-33CB-81F6-A13A83CC31E1}</Project>
+      <Name>N64Graphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\tinyxml2-build\tinyxml2.vcxproj">
+      <Project>{FA6305F1-0A30-3E0E-AEAA-02CCC2D6FF2B}</Project>
+      <Name>tinyxml2</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\yaml-cpp-build\yaml-cpp.vcxproj">
+      <Project>{C075FC30-7CE4-3F24-A688-14206B8AFD41}</Project>
+      <Name>yaml-cpp</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\zlib-build\zlibstatic.vcxproj">
+      <Project>{8DF9E15E-C6BA-3C0A-8756-9BE3372A0884}</Project>
+      <Name>zlibstatic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

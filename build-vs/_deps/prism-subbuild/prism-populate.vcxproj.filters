@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\prism-subbuild\CMakeFiles\b8d181abc4eceb3cd819b6876345280b\prism-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\prism-subbuild\CMakeFiles\b8d181abc4eceb3cd819b6876345280b\prism-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\prism-subbuild\CMakeFiles\b8d181abc4eceb3cd819b6876345280b\prism-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\prism-subbuild\CMakeFiles\b8d181abc4eceb3cd819b6876345280b\prism-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\prism-subbuild\CMakeFiles\b8d181abc4eceb3cd819b6876345280b\prism-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\prism-subbuild\CMakeFiles\b8d181abc4eceb3cd819b6876345280b\prism-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\prism-subbuild\CMakeFiles\b8d181abc4eceb3cd819b6876345280b\prism-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\prism-subbuild\CMakeFiles\b8d181abc4eceb3cd819b6876345280b\prism-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\prism-subbuild\CMakeFiles\63af8905644d23336ed27ed2ca9d31d1\prism-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\prism-subbuild\CMakeFiles\5e5eef51216e2b7b2321a088cfbb11f5\prism-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\prism-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="E:\test\bb\build-vs\_deps\prism-subbuild\CMakeFiles\prism-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{86C875BE-7EA5-37A9-9EEF-D3C257F84C13}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

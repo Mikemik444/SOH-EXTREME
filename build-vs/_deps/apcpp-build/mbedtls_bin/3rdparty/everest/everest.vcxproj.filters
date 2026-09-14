@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="E:\test\bb\build-vs\_deps\apcpp-build\mbedtls-3.6.4\3rdparty\everest\library\everest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\bb\build-vs\_deps\apcpp-build\mbedtls-3.6.4\3rdparty\everest\library\x25519.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\bb\build-vs\_deps\apcpp-build\mbedtls-3.6.4\3rdparty\everest\library\Hacl_Curve25519_joined.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\apcpp-build\mbedtls-3.6.4\3rdparty\everest\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4F145C3B-7C40-39EC-AD02-DA1E4D45A699}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

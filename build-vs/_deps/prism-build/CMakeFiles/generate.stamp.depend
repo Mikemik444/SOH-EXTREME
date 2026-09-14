@@ -1,0 +1,23 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindDependencyMacro.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CheckLibraryExists.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/ExternalProject/shared_internal_commands.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake
+E:/test/bb/build-vs/CMakeFiles/cmake.verify_globs
+E:/test/bb/build-vs/_deps/prism-src/CMakeLists.txt
+E:/test/vcpkg/installed/x64-windows-static/share/fmt/fmt-config-version.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/fmt/fmt-config.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/fmt/fmt-targets-debug.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/fmt/fmt-targets-release.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/fmt/fmt-targets.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/spdlog/spdlogConfig.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/spdlog/spdlogConfigTargets-debug.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/spdlog/spdlogConfigTargets-release.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/spdlog/spdlogConfigTargets.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/spdlog/spdlogConfigVersion.cmake

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\src\lib_json\json_reader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\src\lib_json\json_value.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\src\lib_json\json_writer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\include\json\config.h">
+      <Filter>Public API</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\include\json\forwards.h">
+      <Filter>Public API</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\include\json\json_features.h">
+      <Filter>Public API</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\include\json\value.h">
+      <Filter>Public API</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\include\json\reader.h">
+      <Filter>Public API</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\include\json\version.h">
+      <Filter>Public API</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\include\json\writer.h">
+      <Filter>Public API</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\include\json\assertions.h">
+      <Filter>Public API</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\src\lib_json\json_tool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\src\lib_json\json_valueiterator.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\src\lib_json\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{65D89C64-7E89-328A-A202-43CF64495255}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public API">
+      <UniqueIdentifier>{F2E15C78-3BA3-30BE-A495-6B6C605166E9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4F145C3B-7C40-39EC-AD02-DA1E4D45A699}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

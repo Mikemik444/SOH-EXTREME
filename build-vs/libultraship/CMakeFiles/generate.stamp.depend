@@ -1,0 +1,31 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-4.1/Modules/ExternalProject/shared_internal_commands.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FeatureSummary.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FetchContent/CMakeLists.cmake.in
+C:/Program Files/CMake/share/cmake-4.1/Modules/FindGit.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FindOpenGL.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/SelectLibraryConfigurations.cmake
+E:/test/bb/build-vs/CMakeFiles/cmake.verify_globs
+E:/test/libultraship/CMakeLists.txt
+E:/test/libultraship/cmake/Utils.cmake
+E:/test/libultraship/cmake/dependencies/common.cmake
+E:/test/libultraship/cmake/dependencies/windows-vcpkg.cmake
+E:/test/libultraship/cmake/dependencies/windows.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/glew/CopyImportedTargetProperties.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/glew/glew-config.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/glew/glew-targets-debug.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/glew/glew-targets-release.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/glew/glew-targets.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/glew/vcpkg-cmake-wrapper.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/sdl2/SDL2Config.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/sdl2/SDL2ConfigVersion.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/sdl2/SDL2mainTargets-debug.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/sdl2/SDL2mainTargets-release.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/sdl2/SDL2mainTargets.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/sdl2/SDL2staticTargets-debug.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/sdl2/SDL2staticTargets-release.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/sdl2/SDL2staticTargets.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/sdl2/sdlfind.cmake

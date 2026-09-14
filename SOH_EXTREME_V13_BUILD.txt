@@ -1,0 +1,23 @@
+SOH-EXTREME v13 - native Archipelago client via N00byKing/APCpp
+
+IMPORTANT: This source adds APCpp as a CMake FetchContent dependency. The first CMake configure requires Internet access and Git because APCpp and its submodules are fetched at configure time.
+
+Windows / Visual Studio 2022 x64:
+
+  cmake -S . -B "build/x64" -G "Visual Studio 17 2022" -T v143 -A x64 -DCMAKE_BUILD_TYPE:STRING=Release
+  cmake --build .\build\x64 --target GenerateSohOtr --config Release
+  cmake --build .\build\x64 --config Release -- /m:1
+
+If MSVC reports C1033/PDB locking:
+
+  taskkill /F /IM mspdbsrv.exe 2>nul
+  taskkill /F /IM cl.exe 2>nul
+  del /F /Q "build\x64\soh\soh.dir\Release\vc143.pdb" 2>nul
+  del /F /Q "build\x64\soh\soh.dir\Release\vc143.idb" 2>nul
+  cmake --build .\build\x64 --config Release -- /m:1
+
+After build, APCpp.dll is copied beside soh.exe by CMake.
+
+In game: Enhancements/Settings -> Network -> Archipelago. Enter server (host:port), SOH-EXTREME slot name, optional password, then Connect.
+
+This source is an integration/development build. It has not been compiled in this Linux container against Visual Studio, so report the first compiler/linker error verbatim if one occurs.

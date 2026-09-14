@@ -1,0 +1,13 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CheckCXXSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CheckCXXSymbolExists.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CheckIncludeFileCXX.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CheckSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CheckStructHasMember.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CheckSymbolExists.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CheckTypeSize.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake
+E:/test/bb/build-vs/CMakeFiles/cmake.verify_globs
+E:/test/bb/build-vs/_deps/apcpp-src/jsoncpp/src/lib_json/CMakeLists.txt

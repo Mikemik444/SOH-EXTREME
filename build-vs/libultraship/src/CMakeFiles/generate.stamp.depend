@@ -1,0 +1,45 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindDependencyMacro.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CMakePushCheckState.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CheckLibraryExists.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CheckSymbolExists.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FindBZip2.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FindPython/Support.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FindPython3.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FindZLIB.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/SelectLibraryConfigurations.cmake
+E:/test/bb/build-vs/CMakeFiles/cmake.verify_globs
+E:/test/libultraship/cmake/Default.cmake
+E:/test/libultraship/cmake/DefaultCXX.cmake
+E:/test/libultraship/cmake/cvars.cmake
+E:/test/libultraship/src/CMakeLists.txt
+E:/test/libultraship/src/ship/install_config.h.in
+E:/test/vcpkg/installed/x64-windows-static/share/fmt/fmt-config-version.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/fmt/fmt-config.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/fmt/fmt-targets-debug.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/fmt/fmt-targets-release.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/fmt/fmt-targets.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/libzip/libzip-config-version.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/libzip/libzip-config.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/libzip/libzip-targets-debug.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/libzip/libzip-targets-release.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/libzip/libzip-targets.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/nlohmann_json/nlohmann_jsonConfig.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/nlohmann_json/nlohmann_jsonConfigVersion.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/nlohmann_json/nlohmann_jsonTargets.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/spdlog/spdlogConfig.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/spdlog/spdlogConfigTargets-debug.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/spdlog/spdlogConfigTargets-release.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/spdlog/spdlogConfigTargets.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/spdlog/spdlogConfigVersion.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/tinyxml2/tinyxml2-config-version.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/tinyxml2/tinyxml2-config.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/tinyxml2/tinyxml2-static-targets-debug.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/tinyxml2/tinyxml2-static-targets-release.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/tinyxml2/tinyxml2-static-targets.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/zlib/vcpkg-cmake-wrapper.cmake

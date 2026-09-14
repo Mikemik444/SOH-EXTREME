@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C92550BE-5770-314E-A880-7F3D73DBC3CD}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>E:\test\bb\Torch;E:\test\bb\Torch\lib;E:\test\bb\Torch\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>E:\test\bb\Torch;E:\test\bb\Torch\lib;E:\test\bb\Torch\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\test\bb\Torch\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/test/bb/Torch/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/test/bb -BE:/test/bb/build-vs --check-stamp-file E:/test/bb/build-vs/Torch/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeFindDependencyMacro.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-4.1\Modules\FetchContent\package-config-version.cmake.in;C:\Program Files\CMake\share\cmake-4.1\Modules\FetchContent\package-config.cmake.in;C:\Program Files\CMake\share\cmake-4.1\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindThreads.cmake;E:\test\bb\build-vs\CMakeFiles\cmake.verify_globs;E:\test\vcpkg\installed\x64-windows-static\share\fmt\fmt-config-version.cmake;E:\test\vcpkg\installed\x64-windows-static\share\fmt\fmt-config.cmake;E:\test\vcpkg\installed\x64-windows-static\share\fmt\fmt-targets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\fmt\fmt-targets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\fmt\fmt-targets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\spdlog\spdlogConfig.cmake;E:\test\vcpkg\installed\x64-windows-static\share\spdlog\spdlogConfigTargets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\spdlog\spdlogConfigTargets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\spdlog\spdlogConfigTargets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\spdlog\spdlogConfigVersion.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\test\bb\build-vs\Torch\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/test/bb/Torch/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/test/bb -BE:/test/bb/build-vs --check-stamp-file E:/test/bb/build-vs/Torch/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeFindDependencyMacro.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-4.1\Modules\FetchContent\package-config-version.cmake.in;C:\Program Files\CMake\share\cmake-4.1\Modules\FetchContent\package-config.cmake.in;C:\Program Files\CMake\share\cmake-4.1\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindThreads.cmake;E:\test\bb\build-vs\CMakeFiles\cmake.verify_globs;E:\test\vcpkg\installed\x64-windows-static\share\fmt\fmt-config-version.cmake;E:\test\vcpkg\installed\x64-windows-static\share\fmt\fmt-config.cmake;E:\test\vcpkg\installed\x64-windows-static\share\fmt\fmt-targets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\fmt\fmt-targets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\fmt\fmt-targets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\spdlog\spdlogConfig.cmake;E:\test\vcpkg\installed\x64-windows-static\share\spdlog\spdlogConfigTargets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\spdlog\spdlogConfigTargets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\spdlog\spdlogConfigTargets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\spdlog\spdlogConfigVersion.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\test\bb\build-vs\Torch\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="E:\test\bb\build-vs\ZERO_CHECK.vcxproj">
+      <Project>{091C2101-EF04-378F-B8B7-86E68238450C}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\Torch\lib\binarytools\BinaryTools.vcxproj">
+      <Project>{2D82B815-980A-3FBC-AB62-99A12D8734BB}</Project>
+      <Name>BinaryTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\Torch\lib\n64graphics\N64Graphics.vcxproj">
+      <Project>{019E08E6-D7DA-33CB-81F6-A13A83CC31E1}</Project>
+      <Name>N64Graphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\tinyxml2-build\tinyxml2.vcxproj">
+      <Project>{FA6305F1-0A30-3E0E-AEAA-02CCC2D6FF2B}</Project>
+      <Name>tinyxml2</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\Torch\torch.vcxproj">
+      <Project>{2CAFA5A0-BF3F-3052-9914-2977F55BF9FF}</Project>
+      <Name>torch</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\yaml-cpp-build\yaml-cpp.vcxproj">
+      <Project>{C075FC30-7CE4-3F24-A688-14206B8AFD41}</Project>
+      <Name>yaml-cpp</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\zlib-build\zlib.vcxproj">
+      <Project>{D7BA549B-AF98-3E09-851C-D68F8BFCC4AB}</Project>
+      <Name>zlib</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\zlib-build\zlibstatic.vcxproj">
+      <Project>{8DF9E15E-C6BA-3C0A-8756-9BE3372A0884}</Project>
+      <Name>zlibstatic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

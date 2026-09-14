@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C92550BE-5770-314E-A880-7F3D73DBC3CD}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\test\bb\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/test/bb/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/test/bb -BE:/test/bb/build-vs --check-stamp-file E:/test/bb/build-vs/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeFindDependencyMacro.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakePushCheckState.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CheckSymbolExists.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FeatureSummary.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-4.1\Modules\FindBZip2.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\SelectLibraryConfigurations.cmake;E:\test\bb\CMake\Default.cmake;E:\test\bb\CMake\DefaultCXX.cmake;E:\test\bb\CMake\Utils.cmake;E:\test\bb\build-vs\CMakeFiles\4.1.0-rc4\CMakeCCompiler.cmake;E:\test\bb\build-vs\CMakeFiles\4.1.0-rc4\CMakeCXXCompiler.cmake;E:\test\bb\build-vs\CMakeFiles\4.1.0-rc4\CMakeRCCompiler.cmake;E:\test\bb\build-vs\CMakeFiles\4.1.0-rc4\CMakeSystem.cmake;E:\test\bb\build-vs\CMakeFiles\cmake.verify_globs;E:\test\bb\build-vs\CMakeFiles\pkgRedirects\zlib-config-version.cmake;E:\test\bb\build-vs\CMakeFiles\pkgRedirects\zlib-config.cmake;E:\test\bb\properties.h.in;E:\test\bb\src\boot\build.c.in;E:\test\vcpkg\installed\x64-windows-static\share\SDL2_net\SDL2_net-static-targets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\SDL2_net\SDL2_net-static-targets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\SDL2_net\SDL2_net-static-targets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\SDL2_net\SDL2_netConfig.cmake;E:\test\vcpkg\installed\x64-windows-static\share\SDL2_net\SDL2_netConfigVersion.cmake;E:\test\vcpkg\installed\x64-windows-static\share\Vorbis\VorbisConfig.cmake;E:\test\vcpkg\installed\x64-windows-static\share\Vorbis\VorbisConfigVersion.cmake;E:\test\vcpkg\installed\x64-windows-static\share\Vorbis\VorbisTargets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\Vorbis\VorbisTargets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\Vorbis\VorbisTargets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\glfw3\glfw3Config.cmake;E:\test\vcpkg\installed\x64-windows-static\share\glfw3\glfw3ConfigVersion.cmake;E:\test\vcpkg\installed\x64-windows-static\share\glfw3\glfw3Targets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\glfw3\glfw3Targets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\glfw3\glfw3Targets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\libzip\libzip-config-version.cmake;E:\test\vcpkg\installed\x64-windows-static\share\libzip\libzip-config.cmake;E:\test\vcpkg\installed\x64-windows-static\share\libzip\libzip-targets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\libzip\libzip-targets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\libzip\libzip-targets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\ogg\OggConfig.cmake;E:\test\vcpkg\installed\x64-windows-static\share\ogg\OggConfigVersion.cmake;E:\test\vcpkg\installed\x64-windows-static\share\ogg\OggTargets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\ogg\OggTargets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\ogg\OggTargets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\opus\OpusConfig.cmake;E:\test\vcpkg\installed\x64-windows-static\share\opus\OpusConfigVersion.cmake;E:\test\vcpkg\installed\x64-windows-static\share\opus\OpusTargets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\opus\OpusTargets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\opus\OpusTargets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\opusfile\OpusFileConfig.cmake;E:\test\vcpkg\installed\x64-windows-static\share\opusfile\OpusFileConfigVersion.cmake;E:\test\vcpkg\installed\x64-windows-static\share\opusfile\OpusFileTargets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\opusfile\OpusFileTargets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\opusfile\OpusFileTargets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\sdl2\SDL2Config.cmake;E:\test\vcpkg\installed\x64-windows-static\share\sdl2\SDL2ConfigVersion.cmake;E:\test\vcpkg\installed\x64-windows-static\share\sdl2\SDL2mainTargets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\sdl2\SDL2mainTargets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\sdl2\SDL2mainTargets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\sdl2\SDL2staticTargets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\sdl2\SDL2staticTargets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\sdl2\SDL2staticTargets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\sdl2\sdlfind.cmake;E:\test\vcpkg\installed\x64-windows-static\share\zlib\vcpkg-cmake-wrapper.cmake;E:\test\vcpkg\scripts\buildsystems\vcpkg.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\test\bb\build-vs\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/test/bb/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/test/bb -BE:/test/bb/build-vs --check-stamp-file E:/test/bb/build-vs/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeFindDependencyMacro.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakePushCheckState.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CheckSymbolExists.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FeatureSummary.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FetchContent.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\CMake\share\cmake-4.1\Modules\FindBZip2.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\SelectLibraryConfigurations.cmake;E:\test\bb\CMake\Default.cmake;E:\test\bb\CMake\DefaultCXX.cmake;E:\test\bb\CMake\Utils.cmake;E:\test\bb\build-vs\CMakeFiles\4.1.0-rc4\CMakeCCompiler.cmake;E:\test\bb\build-vs\CMakeFiles\4.1.0-rc4\CMakeCXXCompiler.cmake;E:\test\bb\build-vs\CMakeFiles\4.1.0-rc4\CMakeRCCompiler.cmake;E:\test\bb\build-vs\CMakeFiles\4.1.0-rc4\CMakeSystem.cmake;E:\test\bb\build-vs\CMakeFiles\cmake.verify_globs;E:\test\bb\build-vs\CMakeFiles\pkgRedirects\zlib-config-version.cmake;E:\test\bb\build-vs\CMakeFiles\pkgRedirects\zlib-config.cmake;E:\test\bb\properties.h.in;E:\test\bb\src\boot\build.c.in;E:\test\vcpkg\installed\x64-windows-static\share\SDL2_net\SDL2_net-static-targets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\SDL2_net\SDL2_net-static-targets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\SDL2_net\SDL2_net-static-targets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\SDL2_net\SDL2_netConfig.cmake;E:\test\vcpkg\installed\x64-windows-static\share\SDL2_net\SDL2_netConfigVersion.cmake;E:\test\vcpkg\installed\x64-windows-static\share\Vorbis\VorbisConfig.cmake;E:\test\vcpkg\installed\x64-windows-static\share\Vorbis\VorbisConfigVersion.cmake;E:\test\vcpkg\installed\x64-windows-static\share\Vorbis\VorbisTargets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\Vorbis\VorbisTargets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\Vorbis\VorbisTargets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\glfw3\glfw3Config.cmake;E:\test\vcpkg\installed\x64-windows-static\share\glfw3\glfw3ConfigVersion.cmake;E:\test\vcpkg\installed\x64-windows-static\share\glfw3\glfw3Targets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\glfw3\glfw3Targets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\glfw3\glfw3Targets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\libzip\libzip-config-version.cmake;E:\test\vcpkg\installed\x64-windows-static\share\libzip\libzip-config.cmake;E:\test\vcpkg\installed\x64-windows-static\share\libzip\libzip-targets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\libzip\libzip-targets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\libzip\libzip-targets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\ogg\OggConfig.cmake;E:\test\vcpkg\installed\x64-windows-static\share\ogg\OggConfigVersion.cmake;E:\test\vcpkg\installed\x64-windows-static\share\ogg\OggTargets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\ogg\OggTargets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\ogg\OggTargets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\opus\OpusConfig.cmake;E:\test\vcpkg\installed\x64-windows-static\share\opus\OpusConfigVersion.cmake;E:\test\vcpkg\installed\x64-windows-static\share\opus\OpusTargets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\opus\OpusTargets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\opus\OpusTargets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\opusfile\OpusFileConfig.cmake;E:\test\vcpkg\installed\x64-windows-static\share\opusfile\OpusFileConfigVersion.cmake;E:\test\vcpkg\installed\x64-windows-static\share\opusfile\OpusFileTargets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\opusfile\OpusFileTargets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\opusfile\OpusFileTargets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\sdl2\SDL2Config.cmake;E:\test\vcpkg\installed\x64-windows-static\share\sdl2\SDL2ConfigVersion.cmake;E:\test\vcpkg\installed\x64-windows-static\share\sdl2\SDL2mainTargets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\sdl2\SDL2mainTargets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\sdl2\SDL2mainTargets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\sdl2\SDL2staticTargets-debug.cmake;E:\test\vcpkg\installed\x64-windows-static\share\sdl2\SDL2staticTargets-release.cmake;E:\test\vcpkg\installed\x64-windows-static\share\sdl2\SDL2staticTargets.cmake;E:\test\vcpkg\installed\x64-windows-static\share\sdl2\sdlfind.cmake;E:\test\vcpkg\installed\x64-windows-static\share\zlib\vcpkg-cmake-wrapper.cmake;E:\test\vcpkg\scripts\buildsystems\vcpkg.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\test\bb\build-vs\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="E:\test\bb\build-vs\ZERO_CHECK.vcxproj">
+      <Project>{091C2101-EF04-378F-B8B7-86E68238450C}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\apcpp-build\APCpp.vcxproj">
+      <Project>{804A5B02-2C97-3209-A8D8-F3103540E52A}</Project>
+      <Name>APCpp</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\Torch\lib\binarytools\BinaryTools.vcxproj">
+      <Project>{2D82B815-980A-3FBC-AB62-99A12D8734BB}</Project>
+      <Name>BinaryTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\libultraship\ImGui.vcxproj">
+      <Project>{2F0512C8-7FC0-3202-81AD-8AB448D4A1F8}</Project>
+      <Name>ImGui</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\Torch\lib\n64graphics\N64Graphics.vcxproj">
+      <Project>{019E08E6-D7DA-33CB-81F6-A13A83CC31E1}</Project>
+      <Name>N64Graphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\apcpp-build\mbedtls_bin\3rdparty\everest\everest.vcxproj">
+      <Project>{C80E6A4F-11EB-364B-B9B2-8870EE3E4D4F}</Project>
+      <Name>everest</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\apcpp-build\IXWebSocket\ixwebsocket.vcxproj">
+      <Project>{A6CE7CC9-BF15-37C5-A212-63B32E66E2B5}</Project>
+      <Name>ixwebsocket</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\apcpp-build\jsoncpp\src\lib_json\jsoncpp_object.vcxproj">
+      <Project>{9BD67B08-A91E-32BF-AC95-B936DB2C77BC}</Project>
+      <Name>jsoncpp_object</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\apcpp-build\jsoncpp\src\lib_json\jsoncpp_static.vcxproj">
+      <Project>{1AE8686B-EFE4-39C3-AFEC-3C68DE1C9D5E}</Project>
+      <Name>jsoncpp_static</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\libultraship\src\libultraship.vcxproj">
+      <Project>{9384545C-D83F-3F6F-B9F4-CF961113F362}</Project>
+      <Name>libultraship</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\apcpp-build\mbedtls_bin\library\mbedcrypto.vcxproj">
+      <Project>{EEFF8B4C-7303-3ABB-80EC-F7E0C14BABB2}</Project>
+      <Name>mbedcrypto</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\apcpp-build\mbedtls_bin\library\mbedtls.vcxproj">
+      <Project>{40677D87-B361-3AAD-93DC-F8804D0AF0D4}</Project>
+      <Name>mbedtls</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\apcpp-build\mbedtls_bin\library\mbedx509.vcxproj">
+      <Project>{486DFDE1-8E7D-3C16-97F3-D556DC078949}</Project>
+      <Name>mbedx509</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\libultraship\monocypher.vcxproj">
+      <Project>{86F7CC69-0CBC-3C3B-A752-A87E363E1695}</Project>
+      <Name>monocypher</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\apcpp-build\mbedtls_bin\3rdparty\p256-m\p256m.vcxproj">
+      <Project>{679486EC-28B0-32D6-8C1E-916FB7083AA4}</Project>
+      <Name>p256m</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\prism-build\prism.vcxproj">
+      <Project>{D45B7CB0-E332-38B6-A5A1-4A08372BBAD9}</Project>
+      <Name>prism</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\soh.vcxproj">
+      <Project>{552A89C0-161C-3D74-BA16-CF17B2C5231A}</Project>
+      <Name>soh</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\libultraship\stb.vcxproj">
+      <Project>{45E21D89-29C8-3592-AB14-AC30BAA89A35}</Project>
+      <Name>stb</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\tinyxml2-build\tinyxml2.vcxproj">
+      <Project>{FA6305F1-0A30-3E0E-AEAA-02CCC2D6FF2B}</Project>
+      <Name>tinyxml2</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\Torch\torch.vcxproj">
+      <Project>{2CAFA5A0-BF3F-3052-9914-2977F55BF9FF}</Project>
+      <Name>torch</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\yaml-cpp-build\yaml-cpp.vcxproj">
+      <Project>{C075FC30-7CE4-3F24-A688-14206B8AFD41}</Project>
+      <Name>yaml-cpp</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\zlib-build\zlib.vcxproj">
+      <Project>{D7BA549B-AF98-3E09-851C-D68F8BFCC4AB}</Project>
+      <Name>zlib</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\zlib-build\zlibstatic.vcxproj">
+      <Project>{8DF9E15E-C6BA-3C0A-8756-9BE3372A0884}</Project>
+      <Name>zlibstatic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

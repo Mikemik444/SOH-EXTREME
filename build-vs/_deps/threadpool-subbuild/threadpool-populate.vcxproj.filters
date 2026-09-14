@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\threadpool-subbuild\CMakeFiles\540930804d6c1f9a8cbdeb36a41d5bbd\threadpool-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\threadpool-subbuild\CMakeFiles\540930804d6c1f9a8cbdeb36a41d5bbd\threadpool-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\threadpool-subbuild\CMakeFiles\540930804d6c1f9a8cbdeb36a41d5bbd\threadpool-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\threadpool-subbuild\CMakeFiles\540930804d6c1f9a8cbdeb36a41d5bbd\threadpool-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\threadpool-subbuild\CMakeFiles\540930804d6c1f9a8cbdeb36a41d5bbd\threadpool-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\threadpool-subbuild\CMakeFiles\540930804d6c1f9a8cbdeb36a41d5bbd\threadpool-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\threadpool-subbuild\CMakeFiles\540930804d6c1f9a8cbdeb36a41d5bbd\threadpool-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\threadpool-subbuild\CMakeFiles\540930804d6c1f9a8cbdeb36a41d5bbd\threadpool-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\threadpool-subbuild\CMakeFiles\98c2d7128ec4ff6bdf0c301ed2301c72\threadpool-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\threadpool-subbuild\CMakeFiles\41456f99a7bfdcd8e09985f5c2fb1bac\threadpool-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\threadpool-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="E:\test\bb\build-vs\_deps\threadpool-subbuild\CMakeFiles\threadpool-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{BED2C072-B9A4-3F48-8765-F8D0176340BA}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

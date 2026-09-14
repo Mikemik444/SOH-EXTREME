@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "E:/test/bb/build-vs/_deps/prism-subbuild/CMakeFiles/prism-populate"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/prism-subbuild/CMakeFiles/5e5eef51216e2b7b2321a088cfbb11f5/prism-populate.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/prism-subbuild/CMakeFiles/63af8905644d23336ed27ed2ca9d31d1/prism-populate-complete.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/prism-subbuild/CMakeFiles/b8d181abc4eceb3cd819b6876345280b/prism-populate-build.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/prism-subbuild/CMakeFiles/b8d181abc4eceb3cd819b6876345280b/prism-populate-configure.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/prism-subbuild/CMakeFiles/b8d181abc4eceb3cd819b6876345280b/prism-populate-download.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/prism-subbuild/CMakeFiles/b8d181abc4eceb3cd819b6876345280b/prism-populate-install.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/prism-subbuild/CMakeFiles/b8d181abc4eceb3cd819b6876345280b/prism-populate-mkdir.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/prism-subbuild/CMakeFiles/b8d181abc4eceb3cd819b6876345280b/prism-populate-patch.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/prism-subbuild/CMakeFiles/b8d181abc4eceb3cd819b6876345280b/prism-populate-test.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/prism-subbuild/CMakeFiles/b8d181abc4eceb3cd819b6876345280b/prism-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"prism-populate"
+		],
+		"name" : "prism-populate"
+	}
+}

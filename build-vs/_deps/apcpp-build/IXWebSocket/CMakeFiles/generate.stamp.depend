@@ -1,0 +1,9 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FindZLIB.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/GNUInstallDirs.cmake
+E:/test/bb/build-vs/CMakeFiles/cmake.verify_globs
+E:/test/bb/build-vs/_deps/apcpp-src/IXWebSocket/CMake/FindMbedTLS.cmake
+E:/test/bb/build-vs/_deps/apcpp-src/IXWebSocket/CMakeLists.txt
+E:/test/vcpkg/installed/x64-windows-static/share/zlib/vcpkg-cmake-wrapper.cmake

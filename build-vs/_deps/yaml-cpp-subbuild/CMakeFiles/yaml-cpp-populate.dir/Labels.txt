@@ -1,0 +1,14 @@
+# Target labels
+ yaml-cpp-populate
+# Source files and their labels
+E:/test/bb/build-vs/_deps/yaml-cpp-subbuild/CMakeFiles/yaml-cpp-populate
+E:/test/bb/build-vs/_deps/yaml-cpp-subbuild/CMakeFiles/9514d846d22abc4bd63edef0d5366718/yaml-cpp-populate.rule
+E:/test/bb/build-vs/_deps/yaml-cpp-subbuild/CMakeFiles/f62082fe52c00a260751add0ca1477b0/yaml-cpp-populate-complete.rule
+E:/test/bb/build-vs/_deps/yaml-cpp-subbuild/CMakeFiles/8e3c7331667600d77eae7ec73efbd133/yaml-cpp-populate-build.rule
+E:/test/bb/build-vs/_deps/yaml-cpp-subbuild/CMakeFiles/8e3c7331667600d77eae7ec73efbd133/yaml-cpp-populate-configure.rule
+E:/test/bb/build-vs/_deps/yaml-cpp-subbuild/CMakeFiles/8e3c7331667600d77eae7ec73efbd133/yaml-cpp-populate-download.rule
+E:/test/bb/build-vs/_deps/yaml-cpp-subbuild/CMakeFiles/8e3c7331667600d77eae7ec73efbd133/yaml-cpp-populate-install.rule
+E:/test/bb/build-vs/_deps/yaml-cpp-subbuild/CMakeFiles/8e3c7331667600d77eae7ec73efbd133/yaml-cpp-populate-mkdir.rule
+E:/test/bb/build-vs/_deps/yaml-cpp-subbuild/CMakeFiles/8e3c7331667600d77eae7ec73efbd133/yaml-cpp-populate-patch.rule
+E:/test/bb/build-vs/_deps/yaml-cpp-subbuild/CMakeFiles/8e3c7331667600d77eae7ec73efbd133/yaml-cpp-populate-test.rule
+E:/test/bb/build-vs/_deps/yaml-cpp-subbuild/CMakeFiles/8e3c7331667600d77eae7ec73efbd133/yaml-cpp-populate-update.rule

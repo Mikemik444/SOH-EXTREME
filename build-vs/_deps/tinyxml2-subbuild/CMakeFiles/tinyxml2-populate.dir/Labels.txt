@@ -1,0 +1,14 @@
+# Target labels
+ tinyxml2-populate
+# Source files and their labels
+E:/test/bb/build-vs/_deps/tinyxml2-subbuild/CMakeFiles/tinyxml2-populate
+E:/test/bb/build-vs/_deps/tinyxml2-subbuild/CMakeFiles/e8f1086a3c5f1a57f646171ce464772b/tinyxml2-populate.rule
+E:/test/bb/build-vs/_deps/tinyxml2-subbuild/CMakeFiles/8f200e55d4eee44f0b5fea0d4517e037/tinyxml2-populate-complete.rule
+E:/test/bb/build-vs/_deps/tinyxml2-subbuild/CMakeFiles/5b017dbb441480eb890527297f11a90a/tinyxml2-populate-build.rule
+E:/test/bb/build-vs/_deps/tinyxml2-subbuild/CMakeFiles/5b017dbb441480eb890527297f11a90a/tinyxml2-populate-configure.rule
+E:/test/bb/build-vs/_deps/tinyxml2-subbuild/CMakeFiles/5b017dbb441480eb890527297f11a90a/tinyxml2-populate-download.rule
+E:/test/bb/build-vs/_deps/tinyxml2-subbuild/CMakeFiles/5b017dbb441480eb890527297f11a90a/tinyxml2-populate-install.rule
+E:/test/bb/build-vs/_deps/tinyxml2-subbuild/CMakeFiles/5b017dbb441480eb890527297f11a90a/tinyxml2-populate-mkdir.rule
+E:/test/bb/build-vs/_deps/tinyxml2-subbuild/CMakeFiles/5b017dbb441480eb890527297f11a90a/tinyxml2-populate-patch.rule
+E:/test/bb/build-vs/_deps/tinyxml2-subbuild/CMakeFiles/5b017dbb441480eb890527297f11a90a/tinyxml2-populate-test.rule
+E:/test/bb/build-vs/_deps/tinyxml2-subbuild/CMakeFiles/5b017dbb441480eb890527297f11a90a/tinyxml2-populate-update.rule

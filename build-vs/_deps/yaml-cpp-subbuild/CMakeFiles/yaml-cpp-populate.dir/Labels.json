@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "E:/test/bb/build-vs/_deps/yaml-cpp-subbuild/CMakeFiles/yaml-cpp-populate"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/yaml-cpp-subbuild/CMakeFiles/9514d846d22abc4bd63edef0d5366718/yaml-cpp-populate.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/yaml-cpp-subbuild/CMakeFiles/f62082fe52c00a260751add0ca1477b0/yaml-cpp-populate-complete.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/yaml-cpp-subbuild/CMakeFiles/8e3c7331667600d77eae7ec73efbd133/yaml-cpp-populate-build.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/yaml-cpp-subbuild/CMakeFiles/8e3c7331667600d77eae7ec73efbd133/yaml-cpp-populate-configure.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/yaml-cpp-subbuild/CMakeFiles/8e3c7331667600d77eae7ec73efbd133/yaml-cpp-populate-download.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/yaml-cpp-subbuild/CMakeFiles/8e3c7331667600d77eae7ec73efbd133/yaml-cpp-populate-install.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/yaml-cpp-subbuild/CMakeFiles/8e3c7331667600d77eae7ec73efbd133/yaml-cpp-populate-mkdir.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/yaml-cpp-subbuild/CMakeFiles/8e3c7331667600d77eae7ec73efbd133/yaml-cpp-populate-patch.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/yaml-cpp-subbuild/CMakeFiles/8e3c7331667600d77eae7ec73efbd133/yaml-cpp-populate-test.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/yaml-cpp-subbuild/CMakeFiles/8e3c7331667600d77eae7ec73efbd133/yaml-cpp-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"yaml-cpp-populate"
+		],
+		"name" : "yaml-cpp-populate"
+	}
+}

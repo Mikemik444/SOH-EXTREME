@@ -1,0 +1,14 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-4.1/Modules/BasicConfigVersion-SameMajorVersion.cmake.in
+C:/Program Files/CMake/share/cmake-4.1/Modules/CMakePackageConfigHelpers.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CTest.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CTestTargets.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CTestUseLaunchers.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/DartConfiguration.tcl.in
+C:/Program Files/CMake/share/cmake-4.1/Modules/GNUInstallDirs.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/WriteBasicConfigVersionFile.cmake
+C:/Program Files/CMake/share/cmake-4.1/Templates/CTestScript.cmake.in
+E:/test/bb/build-vs/CMakeFiles/cmake.verify_globs
+E:/test/bb/build-vs/_deps/tinyxml2-build/tinyxml2.pc.gen
+E:/test/bb/build-vs/_deps/tinyxml2-src/CMakeLists.txt
+E:/test/bb/build-vs/_deps/tinyxml2-src/cmake/tinyxml2.pc.in

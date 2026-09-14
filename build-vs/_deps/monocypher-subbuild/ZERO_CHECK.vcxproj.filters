@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\monocypher-subbuild\CMakeFiles\d502afa1696e2c8030f00dfe1374a955\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{554DA2E9-BC57-342F-A689-5FB8DCD01306}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

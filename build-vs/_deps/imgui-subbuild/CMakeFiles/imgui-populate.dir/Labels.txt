@@ -1,0 +1,14 @@
+# Target labels
+ imgui-populate
+# Source files and their labels
+E:/test/bb/build-vs/_deps/imgui-subbuild/CMakeFiles/imgui-populate
+E:/test/bb/build-vs/_deps/imgui-subbuild/CMakeFiles/a8b22fe23b04bef2a02dadf4269311c1/imgui-populate.rule
+E:/test/bb/build-vs/_deps/imgui-subbuild/CMakeFiles/0cf946f81a269137aa0e7239383bf59b/imgui-populate-complete.rule
+E:/test/bb/build-vs/_deps/imgui-subbuild/CMakeFiles/abe55e06e39843787c8cdd6cbb472ad5/imgui-populate-build.rule
+E:/test/bb/build-vs/_deps/imgui-subbuild/CMakeFiles/abe55e06e39843787c8cdd6cbb472ad5/imgui-populate-configure.rule
+E:/test/bb/build-vs/_deps/imgui-subbuild/CMakeFiles/abe55e06e39843787c8cdd6cbb472ad5/imgui-populate-download.rule
+E:/test/bb/build-vs/_deps/imgui-subbuild/CMakeFiles/abe55e06e39843787c8cdd6cbb472ad5/imgui-populate-install.rule
+E:/test/bb/build-vs/_deps/imgui-subbuild/CMakeFiles/abe55e06e39843787c8cdd6cbb472ad5/imgui-populate-mkdir.rule
+E:/test/bb/build-vs/_deps/imgui-subbuild/CMakeFiles/abe55e06e39843787c8cdd6cbb472ad5/imgui-populate-patch.rule
+E:/test/bb/build-vs/_deps/imgui-subbuild/CMakeFiles/abe55e06e39843787c8cdd6cbb472ad5/imgui-populate-test.rule
+E:/test/bb/build-vs/_deps/imgui-subbuild/CMakeFiles/abe55e06e39843787c8cdd6cbb472ad5/imgui-populate-update.rule

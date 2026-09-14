@@ -1,0 +1,14 @@
+# Target labels
+ dr_libs-populate
+# Source files and their labels
+E:/test/bb/build-vs/_deps/dr_libs-subbuild/CMakeFiles/dr_libs-populate
+E:/test/bb/build-vs/_deps/dr_libs-subbuild/CMakeFiles/f6096bd7f09b5778b77373a9ee4c2266/dr_libs-populate.rule
+E:/test/bb/build-vs/_deps/dr_libs-subbuild/CMakeFiles/3e9d6cad5e629b8c588a7a7e5bd2f4a4/dr_libs-populate-complete.rule
+E:/test/bb/build-vs/_deps/dr_libs-subbuild/CMakeFiles/35dfe23c707fd5396860f1fbd216dd33/dr_libs-populate-build.rule
+E:/test/bb/build-vs/_deps/dr_libs-subbuild/CMakeFiles/35dfe23c707fd5396860f1fbd216dd33/dr_libs-populate-configure.rule
+E:/test/bb/build-vs/_deps/dr_libs-subbuild/CMakeFiles/35dfe23c707fd5396860f1fbd216dd33/dr_libs-populate-download.rule
+E:/test/bb/build-vs/_deps/dr_libs-subbuild/CMakeFiles/35dfe23c707fd5396860f1fbd216dd33/dr_libs-populate-install.rule
+E:/test/bb/build-vs/_deps/dr_libs-subbuild/CMakeFiles/35dfe23c707fd5396860f1fbd216dd33/dr_libs-populate-mkdir.rule
+E:/test/bb/build-vs/_deps/dr_libs-subbuild/CMakeFiles/35dfe23c707fd5396860f1fbd216dd33/dr_libs-populate-patch.rule
+E:/test/bb/build-vs/_deps/dr_libs-subbuild/CMakeFiles/35dfe23c707fd5396860f1fbd216dd33/dr_libs-populate-test.rule
+E:/test/bb/build-vs/_deps/dr_libs-subbuild/CMakeFiles/35dfe23c707fd5396860f1fbd216dd33/dr_libs-populate-update.rule

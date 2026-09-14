@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="E:\test\libultraship\src\fast\Fast3dGui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\fast\Fast3dWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\fast\FastMouseStateManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\fast\interpreter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\fast\debug\GfxDebugger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\fast\resource\type\DisplayList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\fast\resource\type\Light.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\fast\resource\type\Matrix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\fast\resource\type\Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\fast\resource\type\Vertex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\fast\resource\factory\DisplayListFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\fast\resource\factory\LightFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\fast\resource\factory\MatrixFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\fast\resource\factory\TextureFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\fast\resource\factory\VertexFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\fast\backends\gfx_direct3d11.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\fast\backends\gfx_direct3d_common.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\fast\backends\gfx_dxgi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\fast\backends\gfx_metal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\fast\backends\gfx_metal_shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\fast\backends\gfx_opengl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\fast\backends\gfx_sdl2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\libultraship\controller\controldeck\ControlDeck.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\libultraship\controller\controldevice\controller\Controller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\libultraship\controller\controldevice\controller\mapping\ControllerDefaultMappings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\libultraship\bridge\audiobridge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\libultraship\bridge\consolevariablebridge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\libultraship\bridge\controllerbridge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\libultraship\bridge\crashhandlerbridge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\libultraship\bridge\eventsbridge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\libultraship\bridge\gfxbridge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\libultraship\bridge\gfxdebuggerbridge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\libultraship\bridge\resourcebridge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\libultraship\bridge\windowbridge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\libultraship\libultra\AudioDmaRegistry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\libultraship\libultra\os.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\libultraship\libultra\os_cache.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\libultraship\libultra\os_eeprom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\libultraship\libultra\os_mesg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\libultraship\libultra\os_pi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\libultraship\libultra\os_time.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\libultraship\libultra\os_vi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\libultraship\libultra\os_vm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\libultraship\log\luslog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\libultraship\window\gui\GfxDebuggerWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\libultraship\window\gui\InputEditorWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\Context.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\audio\Audio.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\audio\AudioPlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\audio\NullAudioPlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\audio\SDLAudioPlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\audio\SoundMatrixDecoder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\audio\WasapiAudioPlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldeck\ControlDeck.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldeck\ControlPort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\ControlDevice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\Controller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\ControllerButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\ControllerGyro.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\ControllerLED.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\ControllerRumble.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\ControllerStick.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\ControllerAxisDirectionMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\ControllerButtonMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\ControllerDefaultMappings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\ControllerGyroMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\ControllerInputMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\ControllerLEDMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\ControllerMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\ControllerRumbleMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\factories\AxisDirectionMappingFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\factories\ButtonMappingFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\factories\GyroMappingFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\factories\LEDMappingFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\factories\RumbleMappingFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\keyboard\KeyboardKeyToAnyMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\keyboard\KeyboardKeyToAxisDirectionMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\keyboard\KeyboardKeyToButtonMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\mouse\MouseButtonToAnyMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\mouse\MouseButtonToAxisDirectionMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\mouse\MouseButtonToButtonMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\mouse\MouseWheelToAnyMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\mouse\MouseWheelToAxisDirectionMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\mouse\MouseWheelToButtonMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\mouse\WheelHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\sdl\SDLAxisDirectionToAnyMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\sdl\SDLAxisDirectionToAxisDirectionMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\sdl\SDLAxisDirectionToButtonMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\sdl\SDLButtonToAnyMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\sdl\SDLButtonToAxisDirectionMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\sdl\SDLButtonToButtonMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\sdl\SDLGyroMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\sdl\SDLLEDMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\controldevice\controller\mapping\sdl\SDLRumbleMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\physicaldevice\ConnectedPhysicalDeviceManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\physicaldevice\GlobalSDLDeviceSettings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\controller\physicaldevice\SDLAddRemoveDeviceEventHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\config\Config.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\config\ConsoleVariable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\debug\Console.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\debug\CrashHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\window\FileDropMgr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\window\MouseStateManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\window\Window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\window\gui\ConsoleWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\window\gui\EventDebuggerWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\window\gui\FileBrowserWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\window\gui\GameOverlay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\window\gui\Gui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\window\gui\GuiElement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\window\gui\GuiMenuBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\window\gui\GuiWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\window\gui\StatsWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\window\gui\resource\Font.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\window\gui\resource\FontFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\window\gui\resource\GuiTexture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\window\gui\resource\GuiTextureFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\utils\StrHash64.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\utils\StringHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\utils\Utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\utils\binarytools\BinaryReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\utils\binarytools\BinaryWriter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\utils\binarytools\MemoryStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\utils\binarytools\Stream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\utils\glob.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\utils\stox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\events\EventSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\resource\Resource.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\resource\ResourceFactoryBinary.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\resource\ResourceFactoryXML.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\resource\ResourceLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\resource\ResourceManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\resource\type\Blob.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\resource\type\Json.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\resource\type\Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\resource\factory\BlobFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\resource\factory\JsonFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\resource\factory\ShaderFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\resource\archive\Archive.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\resource\archive\ArchiveManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\resource\archive\FolderArchive.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\resource\archive\O2rArchive.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\test\libultraship\src\ship\resource\archive\OtrArchive.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\test\libultraship\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="E:\test\vcpkg\installed\x64-windows-static\share\nlohmann_json\nlohmann_json.natvis" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4F145C3B-7C40-39EC-AD02-DA1E4D45A699}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

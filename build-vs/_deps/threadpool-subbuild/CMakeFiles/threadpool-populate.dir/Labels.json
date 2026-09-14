@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "E:/test/bb/build-vs/_deps/threadpool-subbuild/CMakeFiles/threadpool-populate"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/threadpool-subbuild/CMakeFiles/41456f99a7bfdcd8e09985f5c2fb1bac/threadpool-populate.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/threadpool-subbuild/CMakeFiles/98c2d7128ec4ff6bdf0c301ed2301c72/threadpool-populate-complete.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/threadpool-subbuild/CMakeFiles/540930804d6c1f9a8cbdeb36a41d5bbd/threadpool-populate-build.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/threadpool-subbuild/CMakeFiles/540930804d6c1f9a8cbdeb36a41d5bbd/threadpool-populate-configure.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/threadpool-subbuild/CMakeFiles/540930804d6c1f9a8cbdeb36a41d5bbd/threadpool-populate-download.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/threadpool-subbuild/CMakeFiles/540930804d6c1f9a8cbdeb36a41d5bbd/threadpool-populate-install.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/threadpool-subbuild/CMakeFiles/540930804d6c1f9a8cbdeb36a41d5bbd/threadpool-populate-mkdir.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/threadpool-subbuild/CMakeFiles/540930804d6c1f9a8cbdeb36a41d5bbd/threadpool-populate-patch.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/threadpool-subbuild/CMakeFiles/540930804d6c1f9a8cbdeb36a41d5bbd/threadpool-populate-test.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/threadpool-subbuild/CMakeFiles/540930804d6c1f9a8cbdeb36a41d5bbd/threadpool-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"threadpool-populate"
+		],
+		"name" : "threadpool-populate"
+	}
+}

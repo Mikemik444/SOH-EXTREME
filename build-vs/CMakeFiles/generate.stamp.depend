@@ -1,0 +1,105 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCInformation.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDependentOption.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindDependencyMacro.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CMakePushCheckState.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeRCInformation.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CheckLibraryExists.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/CheckSymbolExists.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/MSVC.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/ExternalProject/shared_internal_commands.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FeatureSummary.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FetchContent.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FetchContent/CMakeLists.cmake.in
+C:/Program Files/CMake/share/cmake-4.1/Modules/FindBZip2.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FindGit.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCLinkerInformation.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/Linker/MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/Linker/MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/Linker/MSVC.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-MSVC.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Initialize.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-MSVC.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/WindowsPaths.cmake
+C:/Program Files/CMake/share/cmake-4.1/Modules/SelectLibraryConfigurations.cmake
+E:/test/bb/CMake/Default.cmake
+E:/test/bb/CMake/DefaultCXX.cmake
+E:/test/bb/CMake/Utils.cmake
+E:/test/bb/CMakeLists.txt
+E:/test/bb/build-vs/CMakeFiles/4.1.0-rc4/CMakeCCompiler.cmake
+E:/test/bb/build-vs/CMakeFiles/4.1.0-rc4/CMakeCXXCompiler.cmake
+E:/test/bb/build-vs/CMakeFiles/4.1.0-rc4/CMakeRCCompiler.cmake
+E:/test/bb/build-vs/CMakeFiles/4.1.0-rc4/CMakeSystem.cmake
+E:/test/bb/build-vs/CMakeFiles/cmake.verify_globs
+E:/test/bb/build-vs/CMakeFiles/pkgRedirects/zlib-config-version.cmake
+E:/test/bb/build-vs/CMakeFiles/pkgRedirects/zlib-config.cmake
+E:/test/bb/properties.h.in
+E:/test/bb/src/boot/build.c.in
+E:/test/vcpkg/installed/x64-windows-static/share/SDL2_net/SDL2_net-static-targets-debug.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/SDL2_net/SDL2_net-static-targets-release.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/SDL2_net/SDL2_net-static-targets.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/SDL2_net/SDL2_netConfig.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/SDL2_net/SDL2_netConfigVersion.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/Vorbis/VorbisConfig.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/Vorbis/VorbisConfigVersion.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/Vorbis/VorbisTargets-debug.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/Vorbis/VorbisTargets-release.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/Vorbis/VorbisTargets.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/glfw3/glfw3Config.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/glfw3/glfw3ConfigVersion.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/glfw3/glfw3Targets-debug.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/glfw3/glfw3Targets-release.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/glfw3/glfw3Targets.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/libzip/libzip-config-version.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/libzip/libzip-config.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/libzip/libzip-targets-debug.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/libzip/libzip-targets-release.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/libzip/libzip-targets.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/ogg/OggConfig.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/ogg/OggConfigVersion.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/ogg/OggTargets-debug.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/ogg/OggTargets-release.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/ogg/OggTargets.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/opus/OpusConfig.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/opus/OpusConfigVersion.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/opus/OpusTargets-debug.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/opus/OpusTargets-release.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/opus/OpusTargets.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/opusfile/OpusFileConfig.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/opusfile/OpusFileConfigVersion.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/opusfile/OpusFileTargets-debug.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/opusfile/OpusFileTargets-release.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/opusfile/OpusFileTargets.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/sdl2/SDL2Config.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/sdl2/SDL2ConfigVersion.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/sdl2/SDL2mainTargets-debug.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/sdl2/SDL2mainTargets-release.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/sdl2/SDL2mainTargets.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/sdl2/SDL2staticTargets-debug.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/sdl2/SDL2staticTargets-release.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/sdl2/SDL2staticTargets.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/sdl2/sdlfind.cmake
+E:/test/vcpkg/installed/x64-windows-static/share/zlib/vcpkg-cmake-wrapper.cmake
+E:/test/vcpkg/scripts/buildsystems/vcpkg.cmake

@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{804A5B02-2C97-3209-A8D8-F3103540E52A}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <VcpkgEnabled>false</VcpkgEnabled>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>APCpp</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="do_not_import_user.props" Condition="exists('do_not_import_user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\test\bb\build-vs\_deps\apcpp-build\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">APCpp.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">APCpp</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\test\bb\build-vs\_deps\apcpp-build\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">APCpp.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">APCpp</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\test\bb\build-vs\_deps\apcpp-src;E:\test\bb\build-vs\_deps\apcpp-src\IXWebSocket;E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\include;E:\test\bb\build-vs\mbedtls-3.6.4\include;E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\src\lib_json\..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization></Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);IXWEBSOCKET_USE_TLS;IXWEBSOCKET_USE_MBED_TLS;IXWEBSOCKET_USE_ZLIB;CMAKE_INTDIR="Debug";APCpp_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;IXWEBSOCKET_USE_TLS;IXWEBSOCKET_USE_MBED_TLS;IXWEBSOCKET_USE_ZLIB;CMAKE_INTDIR=\"Debug\";APCpp_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\test\bb\build-vs\_deps\apcpp-src;E:\test\bb\build-vs\_deps\apcpp-src\IXWebSocket;E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\include;E:\test\bb\build-vs\mbedtls-3.6.4\include;E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\src\lib_json\..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\test\bb\build-vs\_deps\apcpp-src;E:\test\bb\build-vs\_deps\apcpp-src\IXWebSocket;E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\include;E:\test\bb\build-vs\mbedtls-3.6.4\include;E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\src\lib_json\..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreLinkEvent>
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message>Auto build dll exports</Message>
+      <Command>setlocal
+cd E:\test\bb\build-vs\_deps\apcpp-build
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E __create_def E:/test/bb/build-vs/_deps/apcpp-build/APCpp.dir/Debug/exports.def E:/test/bb/build-vs/_deps/apcpp-build/APCpp.dir/Debug//objects.txt
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreLinkEvent>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+E:\test\vcpkg\vcpkg.exe z-applocal --target-binary=E:/test/bb/build-vs/_deps/apcpp-build/Debug/APCpp.dll --installed-bin-dir=E:/test/vcpkg/installed/x64-windows-static/debug/bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>IXWebSocket\Debug\ixwebsocket.lib;jsoncpp\src\lib_json\Debug\jsoncpp.lib;ws2_32.lib;mbedtls_bin\library\Debug\mbedtls.lib;mbedtls_bin\library\Debug\mbedx509.lib;mbedtls_bin\library\Debug\mbedcrypto.lib;bcrypt.lib;mbedtls_bin\3rdparty\everest\Debug\everest.lib;mbedtls_bin\3rdparty\p256-m\Debug\p256m.lib;E:\test\vcpkg\installed\x64-windows-static\debug\lib\zsd.lib;wsock32.lib;ws2_32.lib;shlwapi.lib;Crypt32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>E:/test/bb/build-vs/_deps/apcpp-build/Debug/APCpp.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ModuleDefinitionFile>E:/test/bb/build-vs/_deps/apcpp-build/APCpp.dir/Debug/exports.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>E:/test/bb/build-vs/_deps/apcpp-build/Debug/APCpp.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem></SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\test\bb\build-vs\_deps\apcpp-src;E:\test\bb\build-vs\_deps\apcpp-src\IXWebSocket;E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\include;E:\test\bb\build-vs\mbedtls-3.6.4\include;E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\src\lib_json\..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization></Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);IXWEBSOCKET_USE_TLS;IXWEBSOCKET_USE_MBED_TLS;IXWEBSOCKET_USE_ZLIB;CMAKE_INTDIR="Release";APCpp_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;IXWEBSOCKET_USE_TLS;IXWEBSOCKET_USE_MBED_TLS;IXWEBSOCKET_USE_ZLIB;CMAKE_INTDIR=\"Release\";APCpp_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\test\bb\build-vs\_deps\apcpp-src;E:\test\bb\build-vs\_deps\apcpp-src\IXWebSocket;E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\include;E:\test\bb\build-vs\mbedtls-3.6.4\include;E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\src\lib_json\..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\test\bb\build-vs\_deps\apcpp-src;E:\test\bb\build-vs\_deps\apcpp-src\IXWebSocket;E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\include;E:\test\bb\build-vs\mbedtls-3.6.4\include;E:\test\bb\build-vs\_deps\apcpp-src\jsoncpp\src\lib_json\..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreLinkEvent>
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message>Auto build dll exports</Message>
+      <Command>setlocal
+cd E:\test\bb\build-vs\_deps\apcpp-build
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E __create_def E:/test/bb/build-vs/_deps/apcpp-build/APCpp.dir/Release/exports.def E:/test/bb/build-vs/_deps/apcpp-build/APCpp.dir/Release//objects.txt
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreLinkEvent>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+E:\test\vcpkg\vcpkg.exe z-applocal --target-binary=E:/test/bb/build-vs/_deps/apcpp-build/Release/APCpp.dll --installed-bin-dir=E:/test/vcpkg/installed/x64-windows-static/bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>IXWebSocket\Release\ixwebsocket.lib;jsoncpp\src\lib_json\Release\jsoncpp.lib;ws2_32.lib;mbedtls_bin\library\Release\mbedtls.lib;mbedtls_bin\library\Release\mbedx509.lib;mbedtls_bin\library\Release\mbedcrypto.lib;bcrypt.lib;mbedtls_bin\3rdparty\everest\Release\everest.lib;mbedtls_bin\3rdparty\p256-m\Release\p256m.lib;E:\test\vcpkg\installed\x64-windows-static\lib\zs.lib;wsock32.lib;ws2_32.lib;shlwapi.lib;Crypt32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>E:/test/bb/build-vs/_deps/apcpp-build/Release/APCpp.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ModuleDefinitionFile>E:/test/bb/build-vs/_deps/apcpp-build/APCpp.dir/Release/exports.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>E:/test/bb/build-vs/_deps/apcpp-build/Release/APCpp.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem></SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\test\bb\build-vs\_deps\apcpp-src\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/test/bb/build-vs/_deps/apcpp-src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/test/bb -BE:/test/bb/build-vs --check-stamp-file E:/test/bb/build-vs/_deps/apcpp-build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-4.1\Modules\FindOpenSSL.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindZLIB.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\SelectLibraryConfigurations.cmake;E:\test\bb\build-vs\CMakeFiles\cmake.verify_globs;E:\test\vcpkg\installed\x64-windows-static\share\zlib\vcpkg-cmake-wrapper.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\test\bb\build-vs\_deps\apcpp-build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/test/bb/build-vs/_deps/apcpp-src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/test/bb -BE:/test/bb/build-vs --check-stamp-file E:/test/bb/build-vs/_deps/apcpp-build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-4.1\Modules\FindOpenSSL.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\FindZLIB.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\SelectLibraryConfigurations.cmake;E:\test\bb\build-vs\CMakeFiles\cmake.verify_globs;E:\test\vcpkg\installed\x64-windows-static\share\zlib\vcpkg-cmake-wrapper.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\test\bb\build-vs\_deps\apcpp-build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="E:\test\bb\build-vs\_deps\apcpp-src\Archipelago.cpp" />
+    <ClCompile Include="E:\test\bb\build-vs\_deps\apcpp-src\Archipelago_DataStorageSim.cpp" />
+    <ClCompile Include="E:\test\bb\build-vs\_deps\apcpp-src\Archipelago_Gifting.cpp" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="E:\test\bb\build-vs\ZERO_CHECK.vcxproj">
+      <Project>{091C2101-EF04-378F-B8B7-86E68238450C}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\apcpp-build\mbedtls_bin\3rdparty\everest\everest.vcxproj">
+      <Project>{C80E6A4F-11EB-364B-B9B2-8870EE3E4D4F}</Project>
+      <Name>everest</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\apcpp-build\IXWebSocket\ixwebsocket.vcxproj">
+      <Project>{A6CE7CC9-BF15-37C5-A212-63B32E66E2B5}</Project>
+      <Name>ixwebsocket</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\apcpp-build\jsoncpp\src\lib_json\jsoncpp_static.vcxproj">
+      <Project>{1AE8686B-EFE4-39C3-AFEC-3C68DE1C9D5E}</Project>
+      <Name>jsoncpp_static</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\apcpp-build\mbedtls_bin\library\mbedcrypto.vcxproj">
+      <Project>{EEFF8B4C-7303-3ABB-80EC-F7E0C14BABB2}</Project>
+      <Name>mbedcrypto</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\apcpp-build\mbedtls_bin\library\mbedtls.vcxproj">
+      <Project>{40677D87-B361-3AAD-93DC-F8804D0AF0D4}</Project>
+      <Name>mbedtls</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\apcpp-build\mbedtls_bin\library\mbedx509.vcxproj">
+      <Project>{486DFDE1-8E7D-3C16-97F3-D556DC078949}</Project>
+      <Name>mbedx509</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\test\bb\build-vs\_deps\apcpp-build\mbedtls_bin\3rdparty\p256-m\p256m.vcxproj">
+      <Project>{679486EC-28B0-32D6-8C1E-916FB7083AA4}</Project>
+      <Name>p256m</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

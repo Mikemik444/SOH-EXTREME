@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"E:/test/bb/build-vs/_deps/threadpool-subbuild/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

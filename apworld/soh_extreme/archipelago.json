@@ -1,0 +1,11 @@
+{
+  "game": "SOH-EXTREME",
+  "minimum_ap_version": "0.6.7",
+  "world_version": "0.4.6",
+  "authors": [
+    "mikemik44",
+    "OpenAI"
+  ],
+  "version": 7,
+  "compatible_version": 7
+}

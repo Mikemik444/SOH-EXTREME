@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "E:/test/bb/build-vs/_deps/apcpp-subbuild/CMakeFiles/apcpp-populate"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/apcpp-subbuild/CMakeFiles/bddab4b0e751b1b923724aaf1ed9977d/apcpp-populate.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/apcpp-subbuild/CMakeFiles/1907018c0692781e25a76569f57148fc/apcpp-populate-complete.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/apcpp-subbuild/CMakeFiles/0b0652d0812f1cea70ca626da2274f98/apcpp-populate-build.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/apcpp-subbuild/CMakeFiles/0b0652d0812f1cea70ca626da2274f98/apcpp-populate-configure.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/apcpp-subbuild/CMakeFiles/0b0652d0812f1cea70ca626da2274f98/apcpp-populate-download.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/apcpp-subbuild/CMakeFiles/0b0652d0812f1cea70ca626da2274f98/apcpp-populate-install.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/apcpp-subbuild/CMakeFiles/0b0652d0812f1cea70ca626da2274f98/apcpp-populate-mkdir.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/apcpp-subbuild/CMakeFiles/0b0652d0812f1cea70ca626da2274f98/apcpp-populate-patch.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/apcpp-subbuild/CMakeFiles/0b0652d0812f1cea70ca626da2274f98/apcpp-populate-test.rule"
+		},
+		{
+			"file" : "E:/test/bb/build-vs/_deps/apcpp-subbuild/CMakeFiles/0b0652d0812f1cea70ca626da2274f98/apcpp-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"apcpp-populate"
+		],
+		"name" : "apcpp-populate"
+	}
+}

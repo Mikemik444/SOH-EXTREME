@@ -1,0 +1,12 @@
+SOH-EXTREME APWorld 0.4.2
+
+Universal Tracker fix:
+- Extreme ability/soul requirements are now composed into the inherited Ship of Harkinian
+  rules through Archipelago's Rule Builder (Has/And + world.set_rule).
+- No generic lambda add_rule wrappers remain for Extreme location gates.
+- This lets Universal Tracker explain missing Open Chest / Soul / ability requirements
+  rather than treating those opaque requirements as unexplained/glitched logic.
+
+The game code is unchanged. This package is APWorld-only.
+
+0.4.3: Archipelago 0.6.7 compatibility: compose resolved stock SoH rules using And.Resolved instead of nonexistent And.from_resolved.
