@@ -37,33 +37,6 @@ extern PlayState* gPlayState;
 
 extern "C" u16 Randomizer_Item_Give(PlayState* play, GetItemEntry giEntry);
 
-// These randomizer modules register/unregister their GameInteractor hooks based on
-// the current RSK_* values. ShipInit normally refreshes them when entering a local
-// randomizer save, but AP slot settings arrive after that transition. Re-running
-// the registrations after applying the server snapshot makes the AP slot, rather
-// than the user's local randomizer menu, authoritative.
-void RegisterVBOverrides();
-void RegisterLockOverworldDoors();
-void RegisterMedallionLockedTrials();
-void RegisterShuffleBeehives();
-void RegisterShuffleBeggar();
-void RegisterShuffleCows();
-void RegisterShuffleCrates();
-void RegisterShuffleFairies();
-void RegisterShuffleFish();
-void RegisterShuffleFreestanding();
-void RegisterShuffleGrass();
-void RegisterShuffleIcicles();
-void RegisterShufflePots();
-void RegisterShuffleRedIce();
-void RegisterShuffleRock();
-void RegisterShuffleSigns();
-void RegisterShuffleSilver();
-void RegisterShuffleSpeak();
-void RegisterShuffleTreasureChestGame();
-void RegisterShuffleTrees();
-void RegisterShuffleWonderItems();
-
 namespace {
 constexpr int64_t AP_EXTREME_ITEM_BASE = 9500000;
 constexpr int64_t AP_EXTREME_SPEECH_BASE = 9600000;
@@ -740,31 +713,19 @@ static bool ParseFlatStringIntObject(const std::string& raw, std::unordered_map<
 }
 
 static void RefreshArchipelagoRandomizerHooks() {
-    // Every function below uses the same COND_* registration macros used at Ship
-    // startup. Calling them again is safe: each macro first unregisters its prior
-    // hook, then registers it according to the *current* RSK value.
-    RegisterVBOverrides();
-    RegisterLockOverworldDoors();
-    RegisterMedallionLockedTrials();
-    RegisterShuffleBeehives();
-    RegisterShuffleBeggar();
-    RegisterShuffleCows();
-    RegisterShuffleCrates();
-    RegisterShuffleFairies();
-    RegisterShuffleFish();
-    RegisterShuffleFreestanding();
-    RegisterShuffleGrass();
-    RegisterShuffleIcicles();
-    RegisterShufflePots();
-    RegisterShuffleRedIce();
-    RegisterShuffleRock();
-    RegisterShuffleSigns();
-    RegisterShuffleSilver();
-    RegisterShuffleSpeak();
-    RegisterShuffleTreasureChestGame();
-    RegisterShuffleTrees();
-    RegisterShuffleWonderItems();
-    SPDLOG_INFO("[Archipelago] Refreshed randomizer hooks from authoritative AP settings");
+    // IMPORTANT: use Ship's own native randomizer refresh path instead of trying
+    // to maintain a hand-written list of shuffle modules here.  Normal SoH calls
+    // this exact dependency path from the randomizer OnLoadGame hook after
+    // IS_RANDO becomes true.  AP changes the quest/settings outside the normal
+    // randomizer menu, so without this call modules that were disabled at boot
+    // keep their hooks unregistered (MegaSouls was the most visible example: a
+    // Pot Soul slot could be ON while pots still spawned normally).
+    //
+    // Running the complete IS_RANDO dependency makes AP behave the same as a
+    // normally configured SoH randomizer save and automatically includes future
+    // modules that register with RegisterShipInitFunc(..., { "IS_RANDO" }).
+    ShipInit::Init("IS_RANDO");
+    SPDLOG_INFO("[Archipelago] Refreshed ALL native IS_RANDO hooks from authoritative AP settings");
 }
 
 void ArchipelagoClient::SetSlotSettingsFromJson(const std::string& raw) {
@@ -805,43 +766,78 @@ void ArchipelagoClient::SetShopPricesFromJson(const std::string& raw) {
 }
 
 void ArchipelagoClient::ApplySlotSettings() {
-    if (!slotSettingsLoaded) return;
+    if (!slotSettingsLoaded) {
+        return;
+    }
 
-    // Archipelago owns the complete randomizer settings snapshot for AP saves.
-    // IMPORTANT: this fork's real randomizer CVar prefix is gRandoSettings.*, not
-    // gRando.Settings.*. Write and immediately read every value back so a future
-    // prefix/key regression is visible in the log instead of silently falling back
-    // to the local Randomizer menu.
-    size_t cvarMismatchCount = 0;
-    for (const auto& [key, value] : slotSettings) {
-        const std::string cvar = std::string("gRandoSettings.") + key;
-        CVarSetInteger(cvar.c_str(), value);
-        const int readBack = CVarGetInteger(cvar.c_str(), value - 1);
-        if (readBack != value) {
-            ++cvarMismatchCount;
-            SPDLOG_ERROR("[Archipelago] Failed to apply AP setting {}={} (read back {})", key, value, readBack);
+    SPDLOG_INFO("[Archipelago] SOH-EXTREME AP settings runtime 0.7.45 active");
+
+    // APWorld sends extreme_soh_cvars using the *native option suffixes*
+    // (ShufflePots, ShuffleGrass, PotSoul, etc.).  Do NOT reconstruct the CVar
+    // prefix here.  Ship's Option table is the authority for the exact CVar name
+    // consumed by Option::GetOptionIndex()/RAND_GET_OPTION().
+    //
+    // This fixes the failure where AP successfully wrote/read 223 synthetic CVars,
+    // but the real Randomizer Options still read 0.  A normal SoH randomizer menu
+    // worked because it writes Option::GetCVarName() directly.
+    auto settings = Rando::Settings::GetInstance();
+    if (!settings) {
+        SPDLOG_ERROR("[Archipelago] Randomizer Settings singleton unavailable; cannot apply AP settings");
+        return;
+    }
+
+    size_t mappedNativeOptions = 0;
+    size_t nativeReadbackMismatches = 0;
+    std::set<std::string> consumedKeys;
+
+    for (const auto& option : settings->GetAllOptions()) {
+        const std::string& nativeCVar = option.GetCVarName();
+        if (nativeCVar.empty()) {
+            continue;
+        }
+
+        // AP keys are the final component of the native CVar, e.g.
+        // gRandoSettings.ShufflePots -> ShufflePots.
+        const size_t dot = nativeCVar.find_last_of('.');
+        const std::string nativeKey = dot == std::string::npos ? nativeCVar : nativeCVar.substr(dot + 1);
+        auto it = slotSettings.find(nativeKey);
+        if (it == slotSettings.end()) {
+            continue;
+        }
+
+        const int requested = it->second;
+        CVarSetInteger(nativeCVar.c_str(), requested);
+        consumedKeys.insert(nativeKey);
+        ++mappedNativeOptions;
+
+        const int readBack = CVarGetInteger(nativeCVar.c_str(), requested - 1);
+        if (readBack != requested) {
+            ++nativeReadbackMismatches;
+            SPDLOG_ERROR("[Archipelago] Native option CVar write failed: {} (AP key {}) requested={} readback={}",
+                         nativeCVar, nativeKey, requested, readBack);
         }
     }
 
-    // Option::GetOptionIndex reads from the CVars above. Copy those values into the
-    // live randomizer Context before Randomizer_InitSaveFile() consumes RSK_* values.
-    auto settings = Rando::Settings::GetInstance();
-    if (settings) {
-        settings->UpdateAllOptions();
-        settings->SetAllToContext();
+    // Preserve AP-only/custom CVars that are not represented by Settings::mOptions.
+    // These are intentionally secondary; gameplay randomizer settings above always
+    // use the exact CVar name from Ship's native Option table.
+    for (const auto& [key, value] : slotSettings) {
+        if (consumedKeys.contains(key)) {
+            continue;
+        }
+        const std::string fallbackCVar = std::string("gRandoSettings.") + key;
+        CVarSetInteger(fallbackCVar.c_str(), value);
     }
 
-    // ShipInit only watches the IS_RANDO transition for most shuffle modules. If a
-    // local setting (for example ShufflePots) was Off when the randomizer hooks were
-    // first registered, changing the CVar from AP later did not create the missing
-    // hooks. Refresh them now, after both CVars and the live Context match the slot.
+    // Callbacks may change visibility/availability, then copy the now-correct native
+    // menu indices into the live Context used by RAND_GET_OPTION.
+    settings->UpdateAllOptions();
+    settings->SetAllToContext();
+
     if (IS_RANDO) {
         RefreshArchipelagoRandomizerHooks();
     }
 
-    // Wire SOH-EXTREME's trap settings into the engine that actually consumes
-    // pendingIceTrapCount. Previously these options were only stored as randomizer
-    // settings, so every AP trap either did nothing or behaved like stock ice.
     auto slotValue = [this](const char* key, int fallback = 0) {
         auto it = slotSettings.find(key);
         return it == slotSettings.end() ? fallback : it->second;
@@ -854,8 +850,6 @@ void ArchipelagoClient::ApplySlotSettings() {
     CVarSetInteger("gEnhancements.ExtraTraps.Speed", expanded && slotValue("ExtremeSlowTraps"));
     CVarSetInteger("gEnhancements.ExtraTraps.Magic", expanded && slotValue("ExtremeMagicSuckTraps"));
     CVarSetInteger("gEnhancements.ExtraTraps.Health", expanded && slotValue("ExtremeHealthDrainTraps"));
-    // EXTREME's expanded pool intentionally controls this subset; do not inherit
-    // unrelated local ExtraTraps toggles from a previous non-AP save.
     CVarSetInteger("gEnhancements.ExtraTraps.Shock", 0);
     CVarSetInteger("gEnhancements.ExtraTraps.Knockback", 0);
     CVarSetInteger("gEnhancements.ExtraTraps.Bomb", 0);
@@ -864,24 +858,25 @@ void ArchipelagoClient::ApplySlotSettings() {
     CVarSetInteger("gEnhancements.ExtraTraps.Kill", 0);
     CVarSetInteger("gEnhancements.ExtraTraps.Teleport", 0);
 
-    // Log the settings that most visibly prove whether AP is authoritative. This is
-    // intentionally after UpdateAllOptions()/SetAllToContext(), so these are the same
-    // RSK values actors and gameplay hooks consume.
+    // Log AP input AND the live RSK result.  If these differ now, the log tells us
+    // which exact layer is wrong instead of merely proving a synthetic CVar exists.
     SPDLOG_INFO(
-        "[Archipelago] AP settings active: Pots={} PotSoul={} Grass={} GrassSoul={} Rocks={} RockSoul={} "
-        "Crates={} CrateSoul={} Speak={} NPCSpeech={} FlowOfTime={} ({} total, {} CVar mismatches)",
-        Randomizer_GetSettingValue(RSK_SHUFFLE_POTS),
-        Randomizer_GetSettingValue(RSK_SHUFFLE_POT_SOUL),
-        Randomizer_GetSettingValue(RSK_SHUFFLE_GRASS),
-        Randomizer_GetSettingValue(RSK_SHUFFLE_GRASS_SOUL),
-        Randomizer_GetSettingValue(RSK_SHUFFLE_ROCKS),
-        Randomizer_GetSettingValue(RSK_SHUFFLE_ROCK_SOUL),
-        Randomizer_GetSettingValue(RSK_SHUFFLE_CRATES),
-        Randomizer_GetSettingValue(RSK_SHUFFLE_CRATE_SOUL),
-        Randomizer_GetSettingValue(RSK_SHUFFLE_SPEAK),
-        Randomizer_GetSettingValue(RSK_NPC_SPEECH_SANITY),
-        Randomizer_GetSettingValue(RSK_SHUFFLE_FLOW_OF_TIME),
-        slotSettings.size(), cvarMismatchCount);
+        "[Archipelago] AP native settings: mapped={}/{} readback_mismatches={} | "
+        "Pots AP={} RSK={} PotSoul AP={} RSK={} Grass AP={} RSK={} GrassSoul AP={} RSK={} "
+        "Rocks AP={} RSK={} RockSoul AP={} RSK={} Crates AP={} RSK={} CrateSoul AP={} RSK={} "
+        "Speak AP={} RSK={} NPCSpeech AP={} RSK={} FlowOfTime AP={} RSK={}",
+        mappedNativeOptions, slotSettings.size(), nativeReadbackMismatches,
+        slotValue("ShufflePots"), RAND_GET_OPTION(RSK_SHUFFLE_POTS).Get(),
+        slotValue("PotSoul"), RAND_GET_OPTION(RSK_SHUFFLE_POT_SOUL).Get(),
+        slotValue("ShuffleGrass"), RAND_GET_OPTION(RSK_SHUFFLE_GRASS).Get(),
+        slotValue("GrassSoul"), RAND_GET_OPTION(RSK_SHUFFLE_GRASS_SOUL).Get(),
+        slotValue("ShuffleRocks"), RAND_GET_OPTION(RSK_SHUFFLE_ROCKS).Get(),
+        slotValue("RockSoul"), RAND_GET_OPTION(RSK_SHUFFLE_ROCK_SOUL).Get(),
+        slotValue("ShuffleCrates"), RAND_GET_OPTION(RSK_SHUFFLE_CRATES).Get(),
+        slotValue("CrateSoul"), RAND_GET_OPTION(RSK_SHUFFLE_CRATE_SOUL).Get(),
+        slotValue("ShuffleSpeak"), RAND_GET_OPTION(RSK_SHUFFLE_SPEAK).Get(),
+        slotValue("NPCSpeechSanity"), RAND_GET_OPTION(RSK_NPC_SPEECH_SANITY).Get(),
+        slotValue("FlowOfTime"), RAND_GET_OPTION(RSK_SHUFFLE_FLOW_OF_TIME).Get());
 }
 
 void ArchipelagoClient::EnforceSlotSettings() {
@@ -893,12 +888,19 @@ void ArchipelagoClient::EnforceSlotSettings() {
     // allowed to silently change physical checks/logic after connection. If a user
     // changes one of those CVars locally, restore the server value and refresh the
     // affected hooks before the next gameplay update.
-    for (const auto& [key, expected] : slotSettings) {
-        const std::string cvar = std::string("gRandoSettings.") + key;
-        const int actual = CVarGetInteger(cvar.c_str(), expected);
-        if (actual != expected) {
-            SPDLOG_WARN("[Archipelago] Local randomizer setting {}={} disagrees with AP {}; restoring server snapshot",
-                        key, actual, expected);
+    auto settings = Rando::Settings::GetInstance();
+    if (!settings) return;
+    for (const auto& option : settings->GetAllOptions()) {
+        const std::string& nativeCVar = option.GetCVarName();
+        if (nativeCVar.empty()) continue;
+        const size_t dot = nativeCVar.find_last_of('.');
+        const std::string key = dot == std::string::npos ? nativeCVar : nativeCVar.substr(dot + 1);
+        auto it = slotSettings.find(key);
+        if (it == slotSettings.end()) continue;
+        const int actual = CVarGetInteger(nativeCVar.c_str(), it->second);
+        if (actual != it->second) {
+            SPDLOG_WARN("[Archipelago] Native randomizer setting {}={} disagrees with AP {}; restoring server snapshot",
+                        nativeCVar, actual, it->second);
             ApplySlotSettings();
             return;
         }
