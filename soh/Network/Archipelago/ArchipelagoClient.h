@@ -74,8 +74,9 @@ class ArchipelagoClient {
     void SendTrapLink(const std::string& trapName);
     void QueueLocationInfo(int64_t locationId, int64_t itemId, int playerId, int flags, const std::string& itemName,
                            const std::string& playerName, const std::string& locationName);
-    bool ProcessItem(int64_t itemId, bool notify);
+    bool ProcessItem(int64_t itemId, bool notify, uint64_t sequence);
     void MarkItemApplied(uint64_t sequence);
+    void FinalizeMajorItemReceipt(int modIndex, int itemId, int getItemId);
     std::string GetReceivedCountCVar() const;
     int32_t MapApItemToRandomizerGet(int64_t itemId) const;
     void RequestLocationScouts();
@@ -148,6 +149,14 @@ class ArchipelagoClient {
     bool fileSelectActivationRequested = false;
     uint64_t incomingItemOrdinal = 0;
     uint64_t appliedItemCount = 0;
+    // Major AP items are not committed when the get-item animation merely starts.
+    // They become durable only when SoH fires OnItemReceive after actually granting the item.
+    bool awaitingMajorItemReceipt = false;
+    uint64_t awaitingMajorSequence = 0;
+    int64_t awaitingMajorApItemId = 0;
+    int awaitingMajorModIndex = 0;
+    int awaitingMajorItemId = 0;
+    int awaitingMajorGetItemId = 0;
     std::vector<int64_t> receivedItemSnapshot;
     bool currentSaveIsArchipelago = false;
     bool saveMetadataLoaded = false;

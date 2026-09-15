@@ -215,6 +215,27 @@ static bool MegaSoulAllowsLocation(RandomizerCheck rc) {
 }
 
 bool LocationAccess::ConditionsMet(Region* parentRegion, bool calculatingAvailableChecks) const {
+    // SOH-EXTREME 0.7.47: enforce Open Chest at the central reachability boundary.
+    // This path is shared by native generation and the in-game Check Tracker, so a
+    // chest can never be advertised reachable when the runtime VB_OPEN_CHEST hook
+    // would refuse to open it.  Actor params encode EnBox::type in bits 12..15.
+    auto ctx = Rando::Context::GetInstance();
+    if (ctx->GetOption(RSK_SHUFFLE_OPEN_CHEST)) {
+        const auto* locData = Rando::StaticData::GetLocation(location);
+        if (locData != nullptr && locData->GetActorID() == ACTOR_EN_BOX) {
+            if (!logic->HasItem(RG_OPEN_CHEST)) {
+                return false;
+            }
+            if (ctx->GetOption(RSK_SHUFFLE_OPEN_CHEST).Is(RO_OPEN_CHEST_PROGRESSIVE)) {
+                const int chestType = (locData->GetActorParams() >> 12) & 0xF;
+                const bool smallChest = chestType == 5 || chestType == 6 || chestType == 7 || chestType == 8;
+                if (!smallChest && !logic->CanOpenLargeChest()) {
+                    return false;
+                }
+            }
+        }
+    }
+
     // Category souls are hard progression gates, so apply them centrally to every shuffled location of that type.
     // This keeps seed generation, playthrough spheres, and the in-game tracker consistent with runtime behavior.
     if (!MegaSoulAllowsLocation(location)) {

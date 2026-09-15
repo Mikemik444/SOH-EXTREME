@@ -280,10 +280,9 @@ std::shared_ptr<GetItemEntry> Item::GetGIEntry() const { // NOLINT(*-no-recursio
             }
             break;
         case RG_PROGRESSIVE_STRENGTH:
-            if (!logic->CheckRandoInf(RAND_INF_CAN_GRAB)) {
-                actual = RG_POWER_BRACELET;
-                break;
-            }
+            // SOH-EXTREME 0.7.49: Grab is its own shuffled item.  Do not consume
+            // the first Strength Upgrade as Grab; AP and native logic both model
+            // Strength Upgrade as Goron's Bracelet -> Silver -> Gold.
             switch (logic->CurrentUpgrade(UPG_STRENGTH)) {
                 case 0:
                     actual = RG_GORONS_BRACELET;

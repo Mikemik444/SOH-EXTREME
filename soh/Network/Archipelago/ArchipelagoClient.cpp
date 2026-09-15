@@ -10,6 +10,7 @@ static bool ParseFlatStringIntObject(const std::string& raw, std::unordered_map<
 #include <set>
 
 #include "soh/OTRGlobals.h"
+#include "soh/SaveManager.h"
 #include "soh/ShipInit.hpp"
 #include "soh/cvar_prefixes.h"
 #include "soh/Enhancements/game-interactor/GameInteractor.h"
@@ -408,6 +409,9 @@ void ArchipelagoClient::Enable() {
     syncFrameCounter = 0;
     incomingItemOrdinal = 0;
     receivedItemSnapshot.clear();
+    awaitingMajorItemReceipt = false;
+    awaitingMajorSequence = 0;
+    awaitingMajorApItemId = 0;
     currentSaveIsArchipelago = false;
     saveMetadataLoaded = false;
     saveIdentityMismatch = false;
@@ -458,6 +462,9 @@ void ArchipelagoClient::Disable() {
     scoutsRequested = false;
     saveRuntimeSynchronized = false;
     fileSelectActivationRequested = false;
+    awaitingMajorItemReceipt = false;
+    awaitingMajorSequence = 0;
+    awaitingMajorApItemId = 0;
     currentSaveIsArchipelago = false;
     saveMetadataLoaded = false;
     saveIdentityMismatch = false;
@@ -486,6 +493,12 @@ void ArchipelagoClient::LoadSaveMetadata(bool isArchipelagoSave, uint64_t receiv
     std::scoped_lock lock(queueMutex);
 
     currentSaveIsArchipelago = isArchipelagoSave;
+    // A death/reset can abort a get-item animation. Never carry an uncommitted
+    // major-item transaction across a save reload; the saved receive count below
+    // will cause APCpp's ReceivedItems history to replay it.
+    awaitingMajorItemReceipt = false;
+    awaitingMajorSequence = 0;
+    awaitingMajorApItemId = 0;
     saveMetadataLoaded = true;
     saveServer = server;
     saveSlot = slot;
@@ -578,11 +591,58 @@ void ArchipelagoClient::QueueItem(int64_t itemId, bool notify) {
 void ArchipelagoClient::MarkItemApplied(uint64_t sequence) {
     const uint64_t newCount = sequence + 1;
     if (newCount <= appliedItemCount) return;
+
+    // 0.7.47: the queue itself is transactional.  An AP item stays at the front
+    // until the game has REALLY applied it.  Major items are removed only from
+    // OnItemReceive; immediate items are removed after their give routine returns.
+    // Death, void-out, scene transition, pause/cutscene blocking, or a failed
+    // GiveItemEntryWithoutActor therefore cannot silently consume the queue entry.
+    {
+        std::scoped_lock lock(queueMutex);
+        if (!pendingItems.empty() && pendingItems.front().sequence == sequence) {
+            pendingItems.pop_front();
+        } else {
+            auto it = std::find_if(pendingItems.begin(), pendingItems.end(),
+                                   [sequence](const PendingItem& item) { return item.sequence == sequence; });
+            if (it != pendingItems.end()) pendingItems.erase(it);
+        }
+    }
+
     appliedItemCount = newCount;
     // Keep the old CVar as a migration mirror, but SaveManager's per-save field is
     // authoritative from 0.5.9 onward.
     CVarSetInteger(GetReceivedCountCVar().c_str(), static_cast<int>(appliedItemCount));
-    SPDLOG_INFO("[Archipelago] Applied receive #{}; current save receive count is now {}", sequence, appliedItemCount);
+    SPDLOG_INFO("[Archipelago] Committed receive #{}; removed from queue only after grant; current save receive count is now {}", sequence, appliedItemCount);
+
+    // The AP receive cursor and the inventory/flags it represents must hit disk together.
+    // Without this, death could reload an older inventory while retaining a newer AP
+    // receive cursor, permanently eating the server-sent item.
+    if (currentSaveIsArchipelago && gPlayState != nullptr && gSaveContext.fileNum >= 0) {
+        SaveManager::Instance->SaveFile(gSaveContext.fileNum);
+        SPDLOG_INFO("[Archipelago] Saved AP receive transaction through #{} immediately", sequence);
+    }
+}
+
+void ArchipelagoClient::FinalizeMajorItemReceipt(int modIndex, int itemId, int getItemId) {
+    if (!awaitingMajorItemReceipt) return;
+
+    // Match the exact GetItemEntry that we handed to GiveItemEntryWithoutActor.
+    // getItemId is particularly useful for MOD_RANDOMIZER entries, while mod/item
+    // protects vanilla-backed major items from unrelated pickups.
+    if (modIndex != awaitingMajorModIndex || itemId != awaitingMajorItemId ||
+        (awaitingMajorGetItemId != 0 && getItemId != awaitingMajorGetItemId)) {
+        return;
+    }
+
+    const uint64_t sequence = awaitingMajorSequence;
+    const int64_t apItemId = awaitingMajorApItemId;
+    awaitingMajorItemReceipt = false;
+    awaitingMajorSequence = 0;
+    awaitingMajorApItemId = 0;
+
+    SPDLOG_INFO("[Archipelago] Major AP item {} receive #{} actually granted by SoH; committing now",
+                apItemId, sequence);
+    MarkItemApplied(sequence);
 }
 
 void ArchipelagoClient::PrepareNewSaveItemReplay() {
@@ -596,6 +656,9 @@ void ArchipelagoClient::PrepareNewSaveItemReplay() {
     // means deleting/recreating a local file does not permanently lose AP starting
     // inventory just because the server remembers that it was delivered before.
     appliedItemCount = 0;
+    awaitingMajorItemReceipt = false;
+    awaitingMajorSequence = 0;
+    awaitingMajorApItemId = 0;
     currentSaveIsArchipelago = true;
     saveMetadataLoaded = true;
     saveIdentityMismatch = false;
@@ -770,7 +833,7 @@ void ArchipelagoClient::ApplySlotSettings() {
         return;
     }
 
-    SPDLOG_INFO("[Archipelago] SOH-EXTREME AP settings runtime 0.7.45 active");
+    SPDLOG_INFO("[Archipelago] SOH-EXTREME AP settings runtime 0.7.48 active");
 
     // APWorld sends extreme_soh_cvars using the *native option suffixes*
     // (ShufflePots, ShuffleGrass, PotSoul, etc.).  Do NOT reconstruct the CVar
@@ -1247,7 +1310,7 @@ void ArchipelagoClient::ApplyScoutedPlacements() {
     }
 }
 
-bool ArchipelagoClient::ProcessItem(int64_t itemId, bool notify) {
+bool ArchipelagoClient::ProcessItem(int64_t itemId, bool notify, uint64_t sequence) {
     if (gPlayState == nullptr) {
         SPDLOG_DEBUG("[Archipelago] Deferring item {} until a save is loaded", itemId);
         return false;
@@ -1433,6 +1496,18 @@ bool ArchipelagoClient::ProcessItem(int64_t itemId, bool notify) {
         SPDLOG_DEBUG("[Archipelago] Link cannot receive major item {} yet; retrying", itemId);
         return false;
     }
+
+    // Starting the animation is NOT the persistence boundary. A death can interrupt
+    // it before SoH actually grants the item. Hold the AP receive cursor here until
+    // OnItemReceive confirms the exact GetItemEntry was committed to gSaveContext.
+    awaitingMajorItemReceipt = true;
+    awaitingMajorSequence = sequence;
+    awaitingMajorApItemId = itemId;
+    awaitingMajorModIndex = static_cast<int>(giEntry.modIndex);
+    awaitingMajorItemId = static_cast<int>(giEntry.itemId);
+    awaitingMajorGetItemId = static_cast<int>(giEntry.getItemId);
+    SPDLOG_INFO("[Archipelago] Major AP receive #{} started; waiting for OnItemReceive before commit", sequence);
+
     if (notify) {
         Notification::Emit({
             .prefix = "Archipelago",
@@ -1649,9 +1724,10 @@ void ArchipelagoClient::Update() {
     bool hasItem = false;
     {
         std::scoped_lock lock(queueMutex);
-        if (!pendingItems.empty()) {
+        if (!awaitingMajorItemReceipt && !pendingItems.empty()) {
+            // 0.7.47: PEEK, never pop here. MarkItemApplied() owns removal.
+            // This is the core death-safe receive invariant.
             nextItem = pendingItems.front();
-            pendingItems.pop_front();
             hasItem = true;
         }
         checked.swap(pendingCheckedLocations);
@@ -1703,11 +1779,16 @@ void ArchipelagoClient::Update() {
     // GiveItemEntryWithoutActor multiple times in one frame and overwrite Link's
     // getItemEntry before the first animation completed.
     if (hasItem) {
-        if (ProcessItem(nextItem.id, nextItem.notify)) {
-            MarkItemApplied(nextItem.sequence);
+        if (ProcessItem(nextItem.id, nextItem.notify, nextItem.sequence)) {
+            if (awaitingMajorItemReceipt && awaitingMajorSequence == nextItem.sequence) {
+                SPDLOG_DEBUG("[Archipelago] Receive #{} is awaiting actual major-item grant; cursor not advanced",
+                             nextItem.sequence);
+            } else {
+                MarkItemApplied(nextItem.sequence);
+            }
         } else {
-            std::scoped_lock lock(queueMutex);
-            pendingItems.push_front(nextItem);
+            // Still at pendingItems.front(); retry on a later safe gameplay frame.
+            SPDLOG_DEBUG("[Archipelago] Receive #{} not granted yet; leaving it at queue front", nextItem.sequence);
         }
     }
 
@@ -2062,8 +2143,8 @@ bool ArchipelagoClient::ReportFallbackNpcSpeech(const Actor* actor) {
     }
 
     // Use exactly one still-unchecked generic AP location for this persisted
-    // manual-talk identity. These locations are locked to non-progression filler
-    // by the APWorld, so unmodelled NPC routes can never create impossible logic.
+    // manual-talk identity. 0.7.47 makes this bank part of normal AP fill; the
+    // APWorld applies Speak/NPC Soul/Flow-of-Time safety gates to the bank.
     int64_t speechLocation = -1;
     for (int64_t i = 0; i < AP_EXTREME_SPEECH_FALLBACK_COUNT; ++i) {
         const int64_t candidate = AP_EXTREME_SPEECH_FALLBACK_BASE + i;
@@ -2183,11 +2264,20 @@ void ArchipelagoClient::RegisterHooks() {
         ArchipelagoClient::GetInstance().Update();
     });
 
+    // A major AP item is durable only after SoH has actually executed its item-give
+    // path. This hook closes that transaction and immediately saves both inventory
+    // and the per-save AP receive cursor.
+    GameInteractor::Instance->RegisterGameHook<GameInteractor::OnItemReceive>([](GetItemEntry itemEntry) {
+        ArchipelagoClient::GetInstance().FinalizeMajorItemReceipt(
+            static_cast<int>(itemEntry.modIndex), static_cast<int>(itemEntry.itemId),
+            static_cast<int>(itemEntry.getItemId));
+    });
+
     // NPC Speech Sanity mirrors shuffled signs:
     // first A press = AP check, later presses = normal dialogue.
     //
     // Mapped NPCs use their real speech location (fully randomized).
-    // Flavor/unmapped NPCs use a persistent generic fallback location, but only
+    // Flavor/unmapped NPCs use a persistent randomized generic location, but only
     // when Ship's own ShuffleSpeak code considers that actor manually speakable.
     // This prevents unrelated ACTORCAT_NPC actors from silently consuming checks.
     COND_VB_SHOULD(VB_SKIP_TALKING, true, {
