@@ -1732,8 +1732,7 @@ bool Logic::CanCutShrubs() {
     if (ctx->GetOption(RSK_SHUFFLE_GRASS_SOUL) && !HasItem(RG_GRASS_SOUL)) { return false; }
     return CanUse(RG_KOKIRI_SWORD) || CanUse(RG_BOOMERANG) || HasExplosives() || CanUse(RG_MASTER_SWORD) ||
            CanUse(RG_MEGATON_HAMMER) || CanUse(RG_BIGGORON_SWORD) || CanUse(RG_GIANTS_KNIFE) ||
-           HasItem(RG_GORONS_BRACELET) ||
-           (ctx->GetOption(RSK_SHUFFLE_GRAB) && HasItem(RG_POWER_BRACELET));
+           HasItem(RG_GORONS_BRACELET);
 }
 
 bool Logic::CanStunDeku() {
@@ -2339,13 +2338,15 @@ void Logic::ApplyItemEffect(Item& item, bool state) {
                     SetInventory(ITEM_HOOKSHOT, HookshotLookup[newItem]);
                 } break;
                 case RG_PROGRESSIVE_STRENGTH: {
-                    // SOH-EXTREME 0.7.49: Strength and Grab are independent.
-                    // Sphere simulation must match the item actually granted in-game.
                     auto currentLevel = CurrentUpgrade(UPG_STRENGTH);
-                    auto newLevel = currentLevel + (!state ? -1 : 1);
-                    if (newLevel < 0) newLevel = 0;
-                    if (newLevel > 3) newLevel = 3;
-                    SetUpgrade(UPG_STRENGTH, newLevel);
+                    if (!CheckRandoInf(RAND_INF_CAN_GRAB) && state) {
+                        SetRandoInf(RAND_INF_CAN_GRAB, true);
+                    } else if (currentLevel == 0 && !state) {
+                        SetRandoInf(RAND_INF_CAN_GRAB, false);
+                    } else {
+                        auto newLevel = currentLevel + (!state ? -1 : 1);
+                        SetUpgrade(UPG_STRENGTH, newLevel);
+                    }
                 } break;
                 case RG_PROGRESSIVE_BOMB_BAG: {
                     auto realGI = item.GetGIEntry();

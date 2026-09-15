@@ -3,7 +3,7 @@ setlocal EnableExtensions
 cd /d "%~dp0"
 
 echo ============================================================
-echo SOH-EXTREME 0.7.48 - LOGIC + TRACKER + DEATH-SAFE QUEUE FIX
+echo SOH-EXTREME 0.7.53 - LOGIC + TRACKER + DEATH-SAFE QUEUE FIX
 echo ============================================================
 echo.
 
@@ -74,8 +74,8 @@ echo [6/6] Done.
 echo ============================================================
 echo BUILD COMPLETE
  echo IMPORTANT: launch E:\test\bb\soh.exe after this script finishes.
-echo APWorld: soh_extreme_0.7.48.apworld
-echo 0.7.48 keeps AP items queued until SoH actually grants them and aligns AP/native logic.
+echo APWorld: soh_extreme_0.7.53.apworld
+echo 0.7.53 keeps AP items queued until SoH actually grants them and aligns AP/native logic.
  echo applying AP settings, exactly like normal SoH randomizer loading.
 echo ============================================================
 copy /Y E:\test\bb\build-vs\soh\soh.o2r E:\test\bb\x64\Release\soh.o2r

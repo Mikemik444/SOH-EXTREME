@@ -434,14 +434,10 @@ void GenerateItemPool() {
     int startScale = ctx->GetOption(RSK_STARTING_SCALE).Get();
     AddItemToPool(RG_PROGRESSIVE_SCALE, std::max(0, 3 + bronzeScale - startScale), std::max(0, 2 + bronzeScale - startScale),
                                         std::max(0, 2 + bronzeScale - startScale), std::max(0, 2 + bronzeScale - startScale));
-    // SOH-EXTREME 0.7.49: Grab is independent from the vanilla strength chain.
-    // This mirrors the AP world: one Grab item plus Bracelet/Silver/Gold strength.
-    if (ctx->GetOption(RSK_SHUFFLE_GRAB)) {
-        AddItemToPool(RG_POWER_BRACELET, 2, 1, 1, 1);
-    }
+    int powerBracelet = ctx->GetOption(RSK_SHUFFLE_GRAB) ? 1 : 0;
     int startStrength = ctx->GetOption(RSK_STARTING_STRENGTH).Get();
-    AddItemToPool(RG_PROGRESSIVE_STRENGTH, std::max(0, 3 - startStrength), std::max(0, 3 - startStrength),
-                                           std::max(0, 3 - startStrength), std::max(0, 3 - startStrength));
+    AddItemToPool(RG_PROGRESSIVE_STRENGTH, std::max(0, 4 + powerBracelet - startStrength), std::max(0, 3 + powerBracelet - startStrength),
+                                           std::max(0, 3 + powerBracelet - startStrength), std::max(0, 3 + powerBracelet - startStrength));
 
     if (ctx->GetOption(RSK_SHUFFLE_CLIMB)) {
         AddItemToPool(RG_CLIMB, 2, 1, 1, 1);

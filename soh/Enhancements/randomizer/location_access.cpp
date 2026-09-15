@@ -177,6 +177,17 @@ static bool MegaSoulAllowsLocation(RandomizerCheck rc) {
     }
 
     switch (loc->GetRCType()) {
+        case RCTYPE_SHOP:
+        case RCTYPE_MERCHANT:
+            // Buying/claiming a shop or merchant check is an NPC interaction.
+            // Speak and NPC Soul are therefore physical requirements, not hints.
+            if (ctx->GetOption(RSK_SHUFFLE_SPEAK) && !(logic->HasItem(RG_SPEAK_DEKU) || logic->HasItem(RG_SPEAK_GERUDO) || logic->HasItem(RG_SPEAK_GORON) || logic->HasItem(RG_SPEAK_HYLIAN) || logic->HasItem(RG_SPEAK_KOKIRI) || logic->HasItem(RG_SPEAK_ZORA))) return false;
+            if (ctx->GetOption(RSK_SHUFFLE_NPC_SOUL) && !logic->HasItem(RG_NPC_SOUL)) return false;
+            return true;
+        case RCTYPE_SCRUB:
+            if (ctx->GetOption(RSK_SHUFFLE_BUSINESS_SCRUB_SOUL) && !logic->HasItem(RG_BUSINESS_SCRUB_SOUL)) return false;
+            if (ctx->GetOption(RSK_SHUFFLE_SPEAK) && !(logic->HasItem(RG_SPEAK_DEKU) || logic->HasItem(RG_SPEAK_GERUDO) || logic->HasItem(RG_SPEAK_GORON) || logic->HasItem(RG_SPEAK_HYLIAN) || logic->HasItem(RG_SPEAK_KOKIRI) || logic->HasItem(RG_SPEAK_ZORA))) return false;
+            return true;
         case RCTYPE_POT:
             // Pot Soul is stacked inside CanBreakPots(), but Grab is only ONE
             // valid physical interaction. Swords, hammer, explosives, boomerang,
@@ -215,7 +226,7 @@ static bool MegaSoulAllowsLocation(RandomizerCheck rc) {
 }
 
 bool LocationAccess::ConditionsMet(Region* parentRegion, bool calculatingAvailableChecks) const {
-    // SOH-EXTREME 0.7.47: enforce Open Chest at the central reachability boundary.
+    // SOH-EXTREME 0.7.53: enforce Open Chest at the central reachability boundary.
     // This path is shared by native generation and the in-game Check Tracker, so a
     // chest can never be advertised reachable when the runtime VB_OPEN_CHEST hook
     // would refuse to open it.  Actor params encode EnBox::type in bits 12..15.

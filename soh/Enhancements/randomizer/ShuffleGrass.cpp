@@ -109,13 +109,6 @@ void EnKusa_RandomizerSpawnCollectible(EnKusa* grassActor, PlayState* play) {
     }
 
     EnItem00* item00 = (EnItem00*)Item_DropCollectible2(play, &grassActor->actor.world.pos, ITEM00_SOH_DUMMY);
-    // SOH-EXTREME 0.7.50: preserve the exact RandomizerCheck on the dummy pickup.
-    // Archipelago reports ITEM00_SOH_DUMMY checks from VB_GIVE_ITEM_FROM_ITEM_00
-    // using randoCheck. Grass previously only copied randoInf, so the pickup hook
-    // saw RC_UNKNOWN_CHECK and AP reporting fell through to indirect flag handling.
-    // That made ordinary/filler grass checks appear to do nothing until unrelated
-    // item processing happened. Report the grass location on the actual pickup frame.
-    item00->randoCheck = grassIdentity->randomizerCheck;
     item00->randoInf = grassIdentity->randomizerInf;
     item00->itemEntry = Rando::Context::GetInstance()->GetFinalGIEntry(grassIdentity->randomizerCheck, true, GI_NONE);
     item00->actor.draw = (ActorFunc)EnItem00_DrawRandomizedItem;

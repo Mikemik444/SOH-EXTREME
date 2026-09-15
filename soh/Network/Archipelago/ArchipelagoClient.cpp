@@ -37,6 +37,7 @@ extern PlayState* gPlayState;
 }
 
 extern "C" u16 Randomizer_Item_Give(PlayState* play, GetItemEntry giEntry);
+extern "C" void Save_SaveFile(void);
 
 namespace {
 constexpr int64_t AP_EXTREME_ITEM_BASE = 9500000;
@@ -618,7 +619,7 @@ void ArchipelagoClient::MarkItemApplied(uint64_t sequence) {
     // Without this, death could reload an older inventory while retaining a newer AP
     // receive cursor, permanently eating the server-sent item.
     if (currentSaveIsArchipelago && gPlayState != nullptr && gSaveContext.fileNum >= 0) {
-        SaveManager::Instance->SaveFile(gSaveContext.fileNum);
+        Save_SaveFile();
         SPDLOG_INFO("[Archipelago] Saved AP receive transaction through #{} immediately", sequence);
     }
 }
@@ -636,6 +637,41 @@ void ArchipelagoClient::FinalizeMajorItemReceipt(int modIndex, int itemId, int g
 
     const uint64_t sequence = awaitingMajorSequence;
     const int64_t apItemId = awaitingMajorApItemId;
+
+    // SOH-EXTREME 0.7.53: make the AP receive path authoritative for every custom
+    // persistent ability/soul.  Native Randomizer_Item_Give normally sets these,
+    // but AP get-item presentation used to leave some custom RandomizerInf flags
+    // unset.  Apply them ONLY after OnItemReceive, so a death during the animation
+    // cannot consume the AP queue entry or persist a half-received progression item.
+    switch (apItemId) {
+        case AP_ITEM_ROLL: Flags_SetRandomizerInf(RAND_INF_HAS_ROLL); break;
+        case AP_ITEM_GRAB: Flags_SetRandomizerInf(RAND_INF_CAN_GRAB); break;
+        case AP_ITEM_CLIMB: Flags_SetRandomizerInf(RAND_INF_CAN_CLIMB); break;
+        case AP_ITEM_CRAWL: Flags_SetRandomizerInf(RAND_INF_CAN_CRAWL); break;
+        case AP_ITEM_SPEAK:
+            Flags_SetRandomizerInf(RAND_INF_CAN_SPEAK_DEKU);
+            Flags_SetRandomizerInf(RAND_INF_CAN_SPEAK_GERUDO);
+            Flags_SetRandomizerInf(RAND_INF_CAN_SPEAK_GORON);
+            Flags_SetRandomizerInf(RAND_INF_CAN_SPEAK_HYLIAN);
+            Flags_SetRandomizerInf(RAND_INF_CAN_SPEAK_KOKIRI);
+            Flags_SetRandomizerInf(RAND_INF_CAN_SPEAK_ZORA);
+            break;
+        case AP_ITEM_ENEMY_SOUL: Flags_SetRandomizerInf(RAND_INF_ENEMY_SOUL); break;
+        case AP_ITEM_NPC_SOUL: Flags_SetRandomizerInf(RAND_INF_NPC_SOUL); break;
+        case AP_ITEM_ANIMAL_SOUL: Flags_SetRandomizerInf(RAND_INF_ANIMAL_SOUL); break;
+        case AP_ITEM_POT_SOUL: Flags_SetRandomizerInf(RAND_INF_POT_SOUL); break;
+        case AP_ITEM_CRATE_SOUL: Flags_SetRandomizerInf(RAND_INF_CRATE_SOUL); break;
+        case AP_ITEM_GRASS_SOUL: Flags_SetRandomizerInf(RAND_INF_GRASS_SOUL); break;
+        case AP_ITEM_ROCK_SOUL: Flags_SetRandomizerInf(RAND_INF_ROCK_SOUL); break;
+        case AP_ITEM_TREE_SOUL: Flags_SetRandomizerInf(RAND_INF_TREE_SOUL); break;
+        case AP_ITEM_BEEHIVE_SOUL: Flags_SetRandomizerInf(RAND_INF_BEEHIVE_SOUL); break;
+        case AP_ITEM_SIGN_SOUL: Flags_SetRandomizerInf(RAND_INF_SIGN_SOUL); break;
+        case AP_ITEM_SKULLTULA_SOUL: Flags_SetRandomizerInf(RAND_INF_SKULLTULA_SOUL); break;
+        case AP_ITEM_BUSINESS_SCRUB_SOUL: Flags_SetRandomizerInf(RAND_INF_BUSINESS_SCRUB_SOUL); break;
+        case AP_ITEM_SHOVEL: Flags_SetRandomizerInf(RAND_INF_HAS_SHOVEL); break;
+        default: break;
+    }
+
     awaitingMajorItemReceipt = false;
     awaitingMajorSequence = 0;
     awaitingMajorApItemId = 0;
@@ -833,7 +869,7 @@ void ArchipelagoClient::ApplySlotSettings() {
         return;
     }
 
-    SPDLOG_INFO("[Archipelago] SOH-EXTREME AP settings runtime 0.7.48 active");
+    SPDLOG_INFO("[Archipelago] SOH-EXTREME AP settings runtime 0.7.47 active");
 
     // APWorld sends extreme_soh_cvars using the *native option suffixes*
     // (ShufflePots, ShuffleGrass, PotSoul, etc.).  Do NOT reconstruct the CVar
@@ -1102,52 +1138,26 @@ int64_t ArchipelagoClient::ResolveApLocationForCheck(int32_t randomizerCheck) {
         return -1;
     }
 
-    // SOH-EXTREME 0.7.51: exact native location names MUST win over the
-    // short-name suffix fallback.  The old single-pass matcher kept looking
-    // after finding an exact match, so checks such as "KF Child Grass 4"
-    // could also match another active location whose name merely ended in the
-    // same short name.  That incorrectly turned a deterministic mapping into
-    // "Ambiguous lazy RC mapping" and consumed the native check without
-    // ever notifying Archipelago.
     int64_t matched = -1;
-
-    // Pass 1: exact full-name match.  This is authoritative when available.
     for (const auto& [apLocation, info] : scoutedLocations) {
         const std::string apName = normalize(info.locationName);
-        if (apName.empty() || fullName.empty() || apName != fullName) continue;
+        if (apName.empty()) continue;
 
-        if (matched != -1 && matched != apLocation) {
-            SPDLOG_ERROR("[Archipelago] Duplicate exact AP location name for RC {} ({}): {} and {}",
-                         randomizerCheck, location->GetName(), matched, apLocation);
-            return -1;
+        bool match = (!fullName.empty() && apName == fullName);
+        if (!match && !shortName.empty() && shortName.size() <= apName.size()) {
+            match = apName.compare(apName.size() - shortName.size(), shortName.size(), shortName) == 0;
         }
-        matched = apLocation;
-    }
+        if (!match) continue;
 
-    if (matched != -1) {
-        rcToApLocation[randomizerCheck] = matched;
-        apLocationToRc[matched] = randomizerCheck;
-        SPDLOG_INFO("[Archipelago] Exactly resolved missing RC mapping: {} -> {} ({})",
-                    randomizerCheck, matched, location->GetName());
-        return matched;
-    }
-
-    // Pass 2: compatibility fallback for native locations whose AP name is not
-    // byte-for-byte the same.  Ambiguity is only meaningful inside this fallback.
-    for (const auto& [apLocation, info] : scoutedLocations) {
-        const std::string apName = normalize(info.locationName);
-        if (apName.empty() || shortName.empty() || shortName.size() > apName.size()) continue;
-        if (apName.compare(apName.size() - shortName.size(), shortName.size(), shortName) != 0) continue;
-
+        // Never guess when two AP locations normalize to the same candidate.
         if (matched != -1 && matched != apLocation) {
-            SPDLOG_WARN("[Archipelago] Ambiguous fallback RC mapping for {} ({})", randomizerCheck, location->GetName());
+            SPDLOG_WARN("[Archipelago] Ambiguous lazy RC mapping for {} ({})", randomizerCheck, location->GetName());
             return -1;
         }
         matched = apLocation;
     }
 
     if (matched == -1) {
-        SPDLOG_ERROR("[Archipelago] No AP location mapping for RC {} ({})", randomizerCheck, location->GetName());
         return -1;
     }
 
@@ -1363,15 +1373,10 @@ bool ArchipelagoClient::ProcessItem(int64_t itemId, bool notify, uint64_t sequen
             case AP_ITEM_CLIMB: randoGet = RG_CLIMB; break;
             case AP_ITEM_CRAWL: randoGet = RG_CRAWL; break;
             case AP_ITEM_SPEAK:
-                // Speak is progression and should be presented as an important item.
-                // Apply the consolidated AP ability flags immediately, then use a native
-                // Speak major-item entry purely for the hold-item presentation.
-                Flags_SetRandomizerInf(RAND_INF_CAN_SPEAK_DEKU);
-                Flags_SetRandomizerInf(RAND_INF_CAN_SPEAK_GERUDO);
-                Flags_SetRandomizerInf(RAND_INF_CAN_SPEAK_GORON);
-                Flags_SetRandomizerInf(RAND_INF_CAN_SPEAK_HYLIAN);
-                Flags_SetRandomizerInf(RAND_INF_CAN_SPEAK_KOKIRI);
-                Flags_SetRandomizerInf(RAND_INF_CAN_SPEAK_ZORA);
+                // Important AP progression item.  Do NOT set the ability here: starting
+                // the get-item animation is not a committed receive.  The consolidated
+                // Speak flags are applied by FinalizeMajorItemReceipt only after SoH's
+                // OnItemReceive confirms the item survived the animation/death boundary.
                 randoGet = RG_SPEAK_HYLIAN;
                 break;
             case AP_ITEM_OPEN_CHEST: randoGet = RG_OPEN_CHEST; break;
@@ -1386,10 +1391,7 @@ bool ArchipelagoClient::ProcessItem(int64_t itemId, bool notify, uint64_t sequen
             case AP_ITEM_BEEHIVE_SOUL: randoGet = RG_BEEHIVE_SOUL; break;
             case AP_ITEM_SIGN_SOUL: randoGet = RG_SIGN_SOUL; break;
             case AP_ITEM_SKULLTULA_SOUL: randoGet = RG_SKULLTULA_SOUL; break;
-            case AP_ITEM_BUSINESS_SCRUB_SOUL:
-                Flags_SetRandomizerInf(RAND_INF_BUSINESS_SCRUB_SOUL);
-                Notification::Emit({ .prefix = "Archipelago", .message = "received", .suffix = "Business Scrub Soul", .remainingTime = 4.0f });
-                return true;
+            case AP_ITEM_BUSINESS_SCRUB_SOUL: randoGet = RG_BUSINESS_SCRUB_SOUL; break;
             case AP_ITEM_SHOVEL: randoGet = RG_SHOVEL; break;
             case AP_ITEM_FLOW_OF_TIME:
                 Flags_SetRandomizerInf(RAND_INF_FLOW_OF_TIME);
@@ -1751,7 +1753,7 @@ void ArchipelagoClient::Update() {
     {
         std::scoped_lock lock(queueMutex);
         if (!awaitingMajorItemReceipt && !pendingItems.empty()) {
-            // 0.7.47: PEEK, never pop here. MarkItemApplied() owns removal.
+            // 0.7.53: PEEK, never pop here. MarkItemApplied() owns removal.
             // This is the core death-safe receive invariant.
             nextItem = pendingItems.front();
             hasItem = true;

@@ -1317,16 +1317,7 @@ void RandomizerOnVanillaBehaviorHandler(GIVanillaBehavior id, bool* should, va_l
             break;
         }
         case VB_PREVENT_STRENGTH: {
-            // SOH-EXTREME 0.7.49: Grab / Power Bracelet is an independent
-            // randomized ability.  For carryable grass/bushes and bomb flowers,
-            // owning Grab must satisfy the pickup check even when Link has no
-            // vanilla strength upgrade.  The old hook only forced failure when
-            // Grab was missing but never cleared vanilla's strength failure when
-            // Grab was present, so AP could logically reach grass that the game
-            // physically refused to pick up.
-            if (Flags_GetRandomizerInf(RAND_INF_CAN_GRAB)) {
-                *should = false;
-            } else {
+            if (!Flags_GetRandomizerInf(RAND_INF_CAN_GRAB)) {
                 GET_PLAYER(gPlayState)->stateFlags2 &= ~PLAYER_STATE2_MOVING_DYNAPOLY;
                 *should = true;
             }
