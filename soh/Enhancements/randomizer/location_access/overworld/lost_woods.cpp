@@ -162,7 +162,11 @@ void RegionTable_Init_LostWoods() {
     areaTable[RR_LW_BRIDGE] = Region("LW Bridge", SCENE_LOST_WOODS, {}, {}, {
         //Exits
         ENTRANCE(RR_KOKIRI_FOREST,  true),
-        ENTRANCE(RR_HYRULE_FIELD,   true),
+        // SOH-EXTREME 0.7.54: Closed Forest is a hard physical barrier.
+        // Keep the native Check Tracker/finder aligned with AP generation even
+        // when RR_LW_BRIDGE is reached through an alternate Lost Woods route.
+        ENTRANCE(RR_HYRULE_FIELD,   ctx->GetOption(RSK_FOREST).IsNot(RO_CLOSED_FOREST_ON) ||
+                                    logic->Get(LOGIC_DEKU_TREE_CLEAR)),
         ENTRANCE(RR_THE_LOST_WOODS, logic->CanUse(RG_LONGSHOT)),
     });
 

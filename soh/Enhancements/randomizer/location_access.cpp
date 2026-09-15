@@ -226,7 +226,7 @@ static bool MegaSoulAllowsLocation(RandomizerCheck rc) {
 }
 
 bool LocationAccess::ConditionsMet(Region* parentRegion, bool calculatingAvailableChecks) const {
-    // SOH-EXTREME 0.7.53: enforce Open Chest at the central reachability boundary.
+    // SOH-EXTREME 0.7.54: enforce Open Chest at the central reachability boundary.
     // This path is shared by native generation and the in-game Check Tracker, so a
     // chest can never be advertised reachable when the runtime VB_OPEN_CHEST hook
     // would refuse to open it.  Actor params encode EnBox::type in bits 12..15.

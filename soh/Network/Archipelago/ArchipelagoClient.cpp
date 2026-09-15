@@ -638,7 +638,7 @@ void ArchipelagoClient::FinalizeMajorItemReceipt(int modIndex, int itemId, int g
     const uint64_t sequence = awaitingMajorSequence;
     const int64_t apItemId = awaitingMajorApItemId;
 
-    // SOH-EXTREME 0.7.53: make the AP receive path authoritative for every custom
+    // SOH-EXTREME 0.7.54: make the AP receive path authoritative for every custom
     // persistent ability/soul.  Native Randomizer_Item_Give normally sets these,
     // but AP get-item presentation used to leave some custom RandomizerInf flags
     // unset.  Apply them ONLY after OnItemReceive, so a death during the animation
@@ -1753,7 +1753,7 @@ void ArchipelagoClient::Update() {
     {
         std::scoped_lock lock(queueMutex);
         if (!awaitingMajorItemReceipt && !pendingItems.empty()) {
-            // 0.7.53: PEEK, never pop here. MarkItemApplied() owns removal.
+            // 0.7.54: PEEK, never pop here. MarkItemApplied() owns removal.
             // This is the core death-safe receive invariant.
             nextItem = pendingItems.front();
             hasItem = true;
