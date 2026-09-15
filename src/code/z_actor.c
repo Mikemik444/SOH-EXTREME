@@ -4781,7 +4781,17 @@ u8 func_800355E4(PlayState* play, Collider* collider) {
     }
 }
 
+extern bool MegaSoul_CanDamageEnemy(Actor* actor);
+
 u8 Actor_ApplyDamage(Actor* actor) {
+    // SOH-EXTREME Enemy Soul: ordinary enemies stay present but cannot lose
+    // health until Enemy Soul is obtained. Bosses, scrubs and Gold Skulltulas
+    // are governed by their own progression systems.
+    if (!MegaSoul_CanDamageEnemy(actor)) {
+        actor->colChkInfo.damage = 0;
+        return actor->colChkInfo.health;
+    }
+
     if (actor->colChkInfo.damage >= actor->colChkInfo.health) {
         actor->colChkInfo.health = 0;
     } else {

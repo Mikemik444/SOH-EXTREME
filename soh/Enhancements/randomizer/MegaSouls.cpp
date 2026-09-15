@@ -93,6 +93,21 @@ static bool IsMegaSignActor(s16 id) {
     return id == ACTOR_EN_KANBAN;
 }
 
+static bool IsMegaEnemySoulProtected(const Actor* actor) {
+    if (actor == nullptr || actor->category != ACTORCAT_ENEMY) {
+        return false;
+    }
+    // Business Scrubs and Gold Skulltulas have their own Souls.
+    if (IsMegaScrubActor(actor->id) || actor->id == ACTOR_EN_SW || actor->id == ACTOR_EN_SI) {
+        return false;
+    }
+    return RAND_GET_OPTION(RSK_SHUFFLE_ENEMY_SOUL) && !MegaHas(RAND_INF_ENEMY_SOUL);
+}
+
+extern "C" bool MegaSoul_CanDamageEnemy(Actor* actor) {
+    return !IsMegaEnemySoulProtected(actor);
+}
+
 static bool IsMegaHiddenGrottoActor(const Actor* actor) {
     // Door_Ana params 0x100/0x200 mark grottos that begin hidden and must
     // normally be revealed by Song of Storms or bombs/hammer. Open holes have neither bit.
@@ -141,18 +156,26 @@ static void RegisterMegaSouls() {
         }
     });
 
-    // Barren-world actor gating. Actors are absent rather than frozen/visible.
+    // Enemy Soul keeps ordinary enemies visible, but they are immortal until
+    // the Soul is owned. Clear queued collision damage immediately before each
+    // enemy update and restore a zero health value to 1 as a safety net for
+    // actors that perform custom damage outside Actor_ApplyDamage().
+    COND_HOOK(ShouldActorUpdate, shouldRegister, [](void* actorRef, bool*) {
+        Actor* actor = static_cast<Actor*>(actorRef);
+        if (!IsMegaEnemySoulProtected(actor)) {
+            return;
+        }
+        actor->colChkInfo.damage = 0;
+        if (actor->colChkInfo.health == 0) {
+            actor->colChkInfo.health = 1;
+        }
+    });
+
+    // Barren-world actor gating. Object/NPC category Souls remain existential;
+    // Enemy Soul is intentionally handled above as visible-but-immortal.
     COND_HOOK(ShouldActorInit, shouldRegister, [](void* actorRef, bool* result) {
         Actor* actor = static_cast<Actor*>(actorRef);
         if (actor == nullptr) {
-            return;
-        }
-
-        // Deku Scrubs are intentionally NOT part of generic Enemy Soul.
-        // Their existence is controlled exclusively by Scrub Soul below.
-        if (RAND_GET_OPTION(RSK_SHUFFLE_ENEMY_SOUL) && !MegaHas(RAND_INF_ENEMY_SOUL) &&
-            actor->category == ACTORCAT_ENEMY && !IsMegaScrubActor(actor->id)) {
-            *result = false;
             return;
         }
 

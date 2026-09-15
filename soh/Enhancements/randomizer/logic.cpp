@@ -788,7 +788,7 @@ bool Logic::CanKillEnemy(RandomizerEnemy enemy, EnemyDistance distance, bool wal
         return false;
     }
 
-    if (ctx->GetOption(RSK_SHUFFLE_ENEMY_SOUL) && !HasItem(RG_ENEMY_SOUL)) {
+    if (enemy != RE_GOLD_SKULLTULA && ctx->GetOption(RSK_SHUFFLE_ENEMY_SOUL) && !HasItem(RG_ENEMY_SOUL)) {
         return false;
     }
     bool killed = false;
@@ -1731,8 +1731,17 @@ bool Logic::CanReflectNuts() {
 bool Logic::CanCutShrubs() {
     if (ctx->GetOption(RSK_SHUFFLE_GRASS_SOUL) && !HasItem(RG_GRASS_SOUL)) { return false; }
     return CanUse(RG_KOKIRI_SWORD) || CanUse(RG_BOOMERANG) || HasExplosives() || CanUse(RG_MASTER_SWORD) ||
-           CanUse(RG_MEGATON_HAMMER) || CanUse(RG_BIGGORON_SWORD) || CanUse(RG_GIANTS_KNIFE) ||
-           HasItem(RG_GORONS_BRACELET);
+           CanUse(RG_MEGATON_HAMMER) || CanUse(RG_BIGGORON_SWORD) || CanUse(RG_GIANTS_KNIFE);
+}
+
+bool Logic::CanPickUpGrass() {
+    if (ctx->GetOption(RSK_SHUFFLE_GRASS_SOUL) && !HasItem(RG_GRASS_SOUL)) {
+        return false;
+    }
+    // SOH-EXTREME Shuffle Grab inserts a tier before normal Strength:
+    // physical Strength #1 grants RG_POWER_BRACELET/Grab only and physical
+    // Strength #2 grants RG_GORONS_BRACELET. Grass lifting needs BOTH.
+    return HasItem(RG_POWER_BRACELET) && HasItem(RG_GORONS_BRACELET);
 }
 
 bool Logic::CanStunDeku() {

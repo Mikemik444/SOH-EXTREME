@@ -199,6 +199,10 @@ static bool MegaSoulAllowsLocation(RandomizerCheck rc) {
         case RCTYPE_SMALL_CRATE:
             return !ctx->GetOption(RSK_SHUFFLE_CRATE_SOUL) || logic->HasItem(RG_CRATE_SOUL);
         case RCTYPE_GRASS:
+            // GrassSanity is a lift interaction in SOH-EXTREME. It needs the
+            // Grass Soul plus BOTH progression halves: Grab/Power Bracelet and
+            // actual Strength (Goron Bracelet or better).
+            return logic->CanPickUpGrass();
         case RCTYPE_BUSH:
             return logic->CanCutShrubs();
         case RCTYPE_ROCK:
@@ -226,7 +230,7 @@ static bool MegaSoulAllowsLocation(RandomizerCheck rc) {
 }
 
 bool LocationAccess::ConditionsMet(Region* parentRegion, bool calculatingAvailableChecks) const {
-    // SOH-EXTREME 0.7.54: enforce Open Chest at the central reachability boundary.
+    // SOH-EXTREME 0.7.55: enforce Open Chest at the central reachability boundary.
     // This path is shared by native generation and the in-game Check Tracker, so a
     // chest can never be advertised reachable when the runtime VB_OPEN_CHEST hook
     // would refuse to open it.  Actor params encode EnBox::type in bits 12..15.

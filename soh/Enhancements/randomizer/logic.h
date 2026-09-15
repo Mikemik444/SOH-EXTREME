@@ -88,6 +88,7 @@ class Logic {
     bool CanSpawnSoilSkull(RandomizerGet bean);
     bool CanReflectNuts();
     bool CanCutShrubs();
+    bool CanPickUpGrass();
     bool CanStunDeku();
     bool CallGossipFairy();
     bool CallGossipFairyExceptSuns();
